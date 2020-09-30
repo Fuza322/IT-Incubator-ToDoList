@@ -21,14 +21,14 @@ function App() {
         ]
 )
 
-    let [filerTasks, setFilterTasks] = useState <FilerValuesType> ('all')
+    let [filter, setFilter] = useState <FilerValuesType> ('all')
 
     let tasksForToDoList = initTasks
-    if (filerTasks == "completed") {
-        tasksForToDoList = initTasks.filter(t => t.isDone == true)
+    if (filter === "completed") {
+        tasksForToDoList = initTasks.filter(t => t.isDone === true)
     }
-    if (filerTasks == "active") {
-        tasksForToDoList = initTasks.filter(t => t.isDone == false)
+    if (filter === "active") {
+        tasksForToDoList = initTasks.filter(t => t.isDone === false)
     }
 
     function removeTask(id: string) {
@@ -39,11 +39,18 @@ function App() {
     function addTask(title: string) {
         let newTask = { id: v1(), title: title, isDone: false }
         let newTasks = [newTask, ...initTasks]
-        setTasks(newTasks);
+        setTasks(newTasks)
     }
 
     function changeFilter(value: FilerValuesType) {
-        setFilterTasks(value)
+        setFilter(value)
+    }
+    function changeStatus (taskID: string, isDone: boolean) {
+        let task = initTasks.find( t => t.id === taskID )
+        if (task) {
+            task.isDone = isDone
+        }
+        setTasks([...initTasks])
     }
 
     return (
@@ -54,6 +61,8 @@ function App() {
                 removeTask={removeTask}
                 changeFilter={changeFilter}
                 addTask={addTask}
+                changeTaskStatus={changeStatus}
+                filter={filter}
             />
         </div>
     );
