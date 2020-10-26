@@ -8,6 +8,7 @@ export type TaskType = {
     title: string
     isDone: boolean
 }
+
 export type FilerValuesType = 'all' | 'completed' | 'active'
 
 function App() {
@@ -20,16 +21,17 @@ function App() {
         {id: v1(), title: 'CodeWars', isDone: false}
         ]
 )
-
     let [filter, setFilter] = useState <FilerValuesType> ('all')
 
-    let tasksForToDoList = initTasks
-
-    if (filter === "completed") {
-        tasksForToDoList = initTasks.filter(t => t.isDone === true)
-    }
-    if (filter === "active") {
-        tasksForToDoList = initTasks.filter(t => t.isDone === false)
+    function taskFilter() {
+        let tasksForToDoList = initTasks
+        if (filter === "completed") {
+            tasksForToDoList = initTasks.filter(t => t.isDone)
+        }
+        if (filter === "active") {
+            tasksForToDoList = initTasks.filter(t => !t.isDone)
+        }
+        return tasksForToDoList
     }
 
     function removeTask(id: string) {
@@ -39,8 +41,7 @@ function App() {
 
     function addTask(title: string) {
         let newTask = { id: v1(), title: title, isDone: false }
-        let newTasks = [newTask, ...initTasks]
-        setTasks(newTasks)
+        setTasks([newTask, ...initTasks])
     }
 
     function changeFilter(value: FilerValuesType) {
@@ -59,7 +60,7 @@ function App() {
         <div className='App'>
             <Todolist
                 title='What to learn:'
-                tasks={tasksForToDoList}
+                tasks={taskFilter()}
                 removeTask={removeTask}
                 changeFilter={changeFilter}
                 addTask={addTask}
