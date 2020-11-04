@@ -52,8 +52,9 @@ function App() {
         let task = initTasks.find( t => t.id === taskID )
         if (task) {
             task.isDone = isDone
+            setTasks([...initTasks])
         }
-        setTasks([...initTasks])
+
     }
 
     return (
