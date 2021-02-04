@@ -10,10 +10,10 @@ import {Menu} from '@material-ui/icons';
 export type TodolistType = {
     id: string
     title: string
-    filter: FilerValuesType
+    filter: FilterValuesType
 }
 
-export type TaskStateType = {
+export type TasksStateType = {
     [key: string]: Array<TaskType>
 }
 
@@ -23,7 +23,7 @@ export type TaskType = {
     isDone: boolean
 }
 
-export type FilerValuesType = 'all' | 'completed' | 'active'
+export type FilterValuesType = 'all' | 'completed' | 'active'
 
 function App() {
 
@@ -35,7 +35,7 @@ function App() {
         {id: todolistID2, title: 'What to buy', filter: 'all'}
     ])
 
-    const [tasks, setTasks] = useState<TaskStateType>({
+    const [tasks, setTasks] = useState<TasksStateType>({
         [todolistID1]: [
             {id: v1(), title: 'HTML&CSS', isDone: true},
             {id: v1(), title: 'JS', isDone: false},
@@ -64,7 +64,7 @@ function App() {
         setTasks({...tasks})
     }
 
-    function changeTodolistFilter(newFilterValue: FilerValuesType, todolistID: string) {
+    function changeTodolistFilter(newFilterValue: FilterValuesType, todolistID: string) {
         const todolist = todolists.find(tl => tl.id === todolistID)
         if (todolist) {
             todolist.filter = newFilterValue
