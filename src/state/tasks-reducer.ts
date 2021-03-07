@@ -74,7 +74,7 @@ export function tasksReducer(state: TasksStateType, action: ActionsType): TasksS
         }
         case 'REMOVE-TODOLIST': {
             const stateCopy = {...state}
-            delete stateCopy[action.id]
+            delete stateCopy[action.todolistId]
             return stateCopy
         }
         default:
@@ -97,4 +97,3 @@ export const changeTaskStatusAC = (taskId: string, isDone: boolean, todolistId: 
 export const changeTaskTitleAC = (taskId: string, title: string, todolistId: string): ChangeTaskTitleActionType => {
     return {type: 'CHANGE-TITLE-TASK', taskId: taskId, title: title, todolistId: todolistId}
 }
-

@@ -20,6 +20,7 @@ export function AddItemForm(props: AddItemFormType) {
         setError(null)
         if (e.key === 'Enter') {
             addItem()
+            setTitle('')
         }
     }
 

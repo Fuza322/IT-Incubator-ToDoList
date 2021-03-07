@@ -11,7 +11,7 @@ test('correct todolist should be removed', () => {
         {id: todolistId2, title: "What to buy", filter: "all"}
     ]
 
-    const action: ActionsType = {type: 'REMOVE-TODOLIST', id: todolistId1}
+    const action: ActionsType = {type: 'REMOVE-TODOLIST', todolistId: todolistId1}
 
     // const endState = todolistsReducer(startState, action)
     const endState = todolistsReducer(startState, removeTodolistAC(todolistId1))
@@ -50,7 +50,7 @@ test('correct todolist should change its name', () => {
 
     const action: ActionsType = {
         type: 'CHANGE-TODOLIST-TITLE',
-        id: todolistId2,
+        todolistId: todolistId2,
         title: newTodolistTitle
     };
 
@@ -73,7 +73,7 @@ test('correct filter of todolist should be changed', () => {
 
     const action: ActionsType = {
         type: 'CHANGE-TODOLIST-FILTER',
-        id: todolistId2,
+        todolistId: todolistId2,
         filter: newFilter
     };
 
