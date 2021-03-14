@@ -26,7 +26,15 @@ export type ChangeTodolistFilterActionType = {
 
 export type ActionsType = RemoveTodolistActionType | AddTodolistActionType | ChangeTodolistTitleActionType | ChangeTodolistFilterActionType
 
-export function todolistsReducer(state: Array<TodolistType>, action: ActionsType) {
+export let todolistID1 = v1()
+export let todolistID2 = v1()
+
+const initialState: Array<TodolistType> =  [
+    {id: todolistID1, title: 'What to learn', filter: 'all'},
+    {id: todolistID2, title: 'What to buy', filter: 'all'}
+]
+
+export function todolistsReducer(state: Array<TodolistType> = initialState, action: ActionsType) {
     switch (action.type) {
         case 'REMOVE-TODOLIST':
             return state.filter(tl => tl.id !== action.todolistId)
@@ -36,7 +44,7 @@ export function todolistsReducer(state: Array<TodolistType>, action: ActionsType
                 title: action.title,
                 filter: 'all'
             }
-            return [...state, newTodolist]
+            return [newTodolist, ...state]
         case 'CHANGE-TODOLIST-TITLE':
             const todolist = state.find(tl => tl.id === action.todolistId);
             if (todolist) {
@@ -60,13 +68,13 @@ export const removeTodolistAC = (todolistId: string): RemoveTodolistActionType =
 }
 
 export const addTodolistAC = (title: string): AddTodolistActionType => {
-    return { type: 'ADD-TODOLIST', title: title, todolistId: v1()}
+    return { type: 'ADD-TODOLIST', todolistId: v1(), title: title}
 }
 
 export const changeTodolistTitleAC = (todolistId: string, title: string): ChangeTodolistTitleActionType => {
-    return { type: 'CHANGE-TODOLIST-TITLE', title: title, todolistId: todolistId}
+    return { type: 'CHANGE-TODOLIST-TITLE', todolistId: todolistId, title: title}
 }
 
 export const changeTodolistFilterAC = (todolistId: string, filter: FilterValuesType): ChangeTodolistFilterActionType => {
-    return { type: 'CHANGE-TODOLIST-FILTER', filter: filter, todolistId: todolistId}
+    return { type: 'CHANGE-TODOLIST-FILTER', todolistId: todolistId, filter: filter}
 }
