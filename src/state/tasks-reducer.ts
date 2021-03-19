@@ -20,14 +20,14 @@ export type AddTaskActionType = {
 }
 
 export type ChangeTaskStatusActionType = {
-    type: 'CHANGE-STATUS-TASK'
+    type: 'CHANGE-TASK-STATUS'
     taskId: string
     isDone: boolean
     todolistId: string
 }
 
 export type ChangeTaskTitleActionType = {
-    type: 'CHANGE-TITLE-TASK'
+    type: 'CHANGE-TASK-TITLE'
     taskId: string
     title: string
     todolistId: string
@@ -63,7 +63,7 @@ export function tasksReducer(state: TasksStateType = initialState, action: Actio
             let task: TaskType = {id: v1(), title: action.title, isDone: false}
             return {...state, [action.todolistId]: [task, ...state[action.todolistId]]}
         }
-        case 'CHANGE-STATUS-TASK': {
+        case 'CHANGE-TASK-STATUS': {
             return {...state, [action.todolistId]: state[action.todolistId].map(task => {
                     if (task.id !== action.taskId) {
                         return task
@@ -73,7 +73,7 @@ export function tasksReducer(state: TasksStateType = initialState, action: Actio
                 })
             }
         }
-        case 'CHANGE-TITLE-TASK': {
+        case 'CHANGE-TASK-TITLE': {
             return {...state, [action.todolistId]: state[action.todolistId].map(task => {
                     if (task.id !== action.taskId) {
                         return task
@@ -107,9 +107,9 @@ export const addTaskAC = (title: string, todolistId: string): AddTaskActionType 
 }
 
 export const changeTaskStatusAC = (taskId: string, isDone: boolean, todolistId: string): ChangeTaskStatusActionType => {
-    return {type: 'CHANGE-STATUS-TASK', taskId: taskId, isDone: isDone, todolistId: todolistId}
+    return {type: 'CHANGE-TASK-STATUS', taskId: taskId, isDone: isDone, todolistId: todolistId}
 }
 
 export const changeTaskTitleAC = (taskId: string, title: string, todolistId: string): ChangeTaskTitleActionType => {
-    return {type: 'CHANGE-TITLE-TASK', taskId: taskId, title: title, todolistId: todolistId}
+    return {type: 'CHANGE-TASK-TITLE', taskId: taskId, title: title, todolistId: todolistId}
 }
