@@ -4,7 +4,7 @@ import {Checkbox, IconButton} from "@material-ui/core";
 import {EditableSpan} from "./EditableSpan";
 import {Delete} from "@material-ui/icons";
 
-type TaskPropsType = {
+export type TaskPropsType = {
     todolistId: string
     task: TaskType
     removeTask: (taskID: string, todolistID: string) => void
@@ -31,7 +31,7 @@ export const Task = React.memo((props: TaskPropsType) => {
                 checked={props.task.isDone}
             />
             <EditableSpan
-                title={props.task.title}
+                value={props.task.title}
                 onChagneValue={onTitleChangeHandler}/>
             <IconButton
                 onClick={onRemoveHandler}

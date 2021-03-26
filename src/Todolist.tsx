@@ -60,7 +60,7 @@ export const Todolist = React.memo((props: TodolistPropsType) => {
         <div className='App'>
             <div>
                 <h3>
-                    <EditableSpan title={props.title} onChagneValue={changeTodolistTitle}/>
+                    <EditableSpan value={props.title} onChagneValue={changeTodolistTitle}/>
                     <IconButton onClick={removeTodolist}>
                         <Delete/>
                     </IconButton>
