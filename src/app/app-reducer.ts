@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import { authAPI } from "../api/todolists-api";
+import {authAPI} from "../api/todolists-api";
 import {setIsLoggedInAC} from "../features/Login/auth-reducer";
 
 const initialState: InitialStateType = {
@@ -21,7 +21,7 @@ export const appReducer = (state: InitialStateType = initialState, action: Actio
     }
 }
 
-export type RequestStatusType =  'idle' | 'loading' | 'succeeded' | 'failed'
+export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
 export type InitialStateType = {
     // происходит ли сейчас взаимодействие с сервером
     status: RequestStatusType
@@ -38,15 +38,18 @@ export const initializeAppTC = () => (dispatch: Dispatch) => {
         } else {
         }
     })
-        .finally(()=> {
+        .finally(() => {
             dispatch(setAppisInitializedAC(true))
         })
 }
 
 
-export const setAppErrorAC = (error: string | null) => ({ type: 'APP/SET-ERROR', error } as const)
-export const setAppStatusAC = (status:  RequestStatusType) => ({ type: 'APP/SET-STATUS', status } as const)
-export const setAppisInitializedAC = (isInitialized:  boolean) => ({ type: 'APP/SET-IS-INITIALIZED', isInitialized } as const)
+export const setAppErrorAC = (error: string | null) => ({type: 'APP/SET-ERROR', error} as const)
+export const setAppStatusAC = (status: RequestStatusType) => ({type: 'APP/SET-STATUS', status} as const)
+export const setAppisInitializedAC = (isInitialized: boolean) => ({
+    type: 'APP/SET-IS-INITIALIZED',
+    isInitialized
+} as const)
 
 export type SetAppErrorActionType = ReturnType<typeof setAppErrorAC>
 export type SetAppStatusActionType = ReturnType<typeof setAppStatusAC>

@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react'
-import './App.css'
 import {AppBar, Button, Container, IconButton, LinearProgress, Toolbar, Typography} from '@material-ui/core'
 import {Menu} from '@material-ui/icons'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
@@ -7,10 +6,10 @@ import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppRootStateType} from './store'
 import {initializeAppTC, RequestStatusType} from './app-reducer'
-import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
+import {Redirect, Route, Switch} from 'react-router-dom'
 import {Login} from '../features/Login/Login'
 import {CircularProgress} from '@material-ui/core'
-import { logoutTC } from '../features/Login/auth-reducer'
+import {logoutTC} from '../features/Login/auth-reducer'
 
 type PropsType = {
     demo?: boolean
@@ -26,7 +25,7 @@ function App({demo = false}: PropsType) {
 
     useEffect(() => {
         dispatch(initializeAppTC())
-    })
+    }, [dispatch])
 
     if (!isInitialized) {
         return <div
@@ -39,9 +38,8 @@ function App({demo = false}: PropsType) {
         dispatch(logoutTC())
     }
 
-
     return (
-        <div className="App">
+        <div>
             <ErrorSnackbar/>
             <AppBar position="static">
                 <Toolbar>
