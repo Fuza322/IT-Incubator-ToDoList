@@ -16,6 +16,7 @@ import {Grid, Paper} from '@material-ui/core'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
 import {Redirect} from 'react-router-dom'
+import Particles from 'react-particles-js';
 import style from './TodolistsList.module.scss'
 
 type TodolistsListPropsType = {
@@ -81,8 +82,29 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         return <Redirect to={'/login'}/>
     }
 
+    const particlesOptions = {
+        "particles": {
+            "number": {"value": 90, "density": {"enable": true, "value_area": 800}},
+            "color": {"value": "#3F51B5"},
+            "shape": {
+                "type": "circle",
+                "stroke": {"width": 0, "color": "#"},
+                "polygon": {"nb_sides": 5},
+            },
+            "size": {"value": 7, "random": true, "anim": {"enable": false, "speed": 10, "sync": false}},
+            "move": {
+                "speed": 1,
+                "random": false,
+                "straight": false,
+                "bounce": false,
+                "attract": {"enable": false, "rotateX": 600, "rotateY": 1200}
+            }
+        },
+    }
+
     return (
-        <>
+        <div>
+            {/*<Particles className={style.particles} params={particlesOptions}/>*/}
             <Grid container style={{padding: '20px'}}>
                 <AddItemForm addItem={addTodolist}/>
             </Grid>
@@ -110,6 +132,6 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                     })
                 }
             </Grid>
-        </>
+        </div>
     )
 }
