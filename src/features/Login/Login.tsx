@@ -13,7 +13,7 @@ type FormikErrorType = {
     rememberMe?: boolean
 }
 
-export const Login = () => {
+export const Login = React.memo(function() {
 
     const dispatch = useDispatch()
 
@@ -48,7 +48,6 @@ export const Login = () => {
     if (isLoggedIn) {
         return <Redirect to={'/'}/>
     }
-
 
     return (
         <Grid container justify="center">
@@ -99,4 +98,4 @@ export const Login = () => {
             </Grid>
         </Grid>
     )
-}
+})

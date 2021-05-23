@@ -8,18 +8,17 @@ type AddItemFormPropsType = {
     disabled?: boolean
 }
 
-export const AddItemForm = React.memo(function({addItem, disabled = false}: AddItemFormPropsType) {
-    console.log("AddItemForm called")
+export const AddItemForm = React.memo(function ({addItem, disabled = false}: AddItemFormPropsType) {
 
-    let [title, setTitle] = useState("")
+    let [title, setTitle] = useState<string>('')
     let [error, setError] = useState<string | null>(null)
 
     const addItemHandler = () => {
-        if (title.trim() !== "") {
-            addItem(title);
-            setTitle("");
+        if (title.trim() !== '') {
+            addItem(title)
+            setTitle('')
         } else {
-            setError("Title is required");
+            setError('Title is required')
         }
     }
 
@@ -29,25 +28,27 @@ export const AddItemForm = React.memo(function({addItem, disabled = false}: AddI
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (error !== null) {
-            setError(null);
+            setError(null)
         }
-        if (e.charCode === 13) {
-            addItemHandler();
+        if (e.key === 'Enter') {
+            addItemHandler()
         }
     }
 
-    return <div>
-        <TextField variant="outlined"
-                   disabled={disabled}
-                   error={!!error}
-                   value={title}
-                   onChange={onChangeHandler}
-                   onKeyPress={onKeyPressHandler}
-                   label="Title"
-                   helperText={error}
-        />
-        <IconButton color="primary" onClick={addItemHandler} disabled={disabled}>
-            <AddBox />
-        </IconButton>
-    </div>
+    return (
+        <div>
+            <TextField variant='outlined'
+                       disabled={disabled}
+                       error={!!error}
+                       value={title}
+                       onChange={onChangeHandler}
+                       onKeyPress={onKeyPressHandler}
+                       label='Title'
+                       helperText={error}
+            />
+            <IconButton color='primary' onClick={addItemHandler} disabled={disabled}>
+                <AddBox/>
+            </IconButton>
+        </div>
+    )
 })

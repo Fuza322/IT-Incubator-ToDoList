@@ -1,7 +1,9 @@
 import React, {useCallback} from 'react'
+import {TaskType} from '../../api/todolists-api'
 //@ts-ignore
 import {CircleProgress} from 'react-gradient-progress'
-import {TaskType} from "../../api/todolists-api";
+import style from './ProgressBar.module.scss'
+
 
 type ProgressBarPropsType = {
     tasks: Array<TaskType>

@@ -6,11 +6,11 @@ import {AppRootStateType} from '../../app/store'
 import {setAppErrorAC} from '../../app/app-reducer'
 
 function Alert(props: AlertProps) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />
+    return <MuiAlert elevation={6} variant='filled' {...props} />
 }
 
 export function ErrorSnackbar() {
-    //const [open, setOpen] = React.useState(true)
+
     const error = useSelector<AppRootStateType, string | null>(state => state.app.error);
     const dispatch = useDispatch()
 
@@ -18,15 +18,14 @@ export function ErrorSnackbar() {
         if (reason === 'clickaway') {
             return
         }
-        dispatch(setAppErrorAC(null));
+        dispatch(setAppErrorAC(null))
     }
 
-
-    const isOpen = error !== null;
+    const isOpen = error !== null
 
     return (
         <Snackbar open={isOpen} autoHideDuration={6000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity="error">
+            <Alert onClose={handleClose} severity='error'>
                 {error}
             </Alert>
         </Snackbar>

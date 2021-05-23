@@ -21,7 +21,7 @@ export const authReducer = (state: InitialStateType = initialState, action: Acti
 
 // actions
 export const setIsLoggedInAC = (value: boolean, email: string) => {
-    return ({type: 'login/SET-IS-LOGGED-IN', value, email} as const)
+    return {type: 'login/SET-IS-LOGGED-IN', value, email} as const
 }
 
 // thunks
@@ -40,7 +40,6 @@ export const loginTC = (data: LoginParamsType) => (dispatch: Dispatch<ActionsTyp
             handleServerNetworkError(error, dispatch)
         })
 }
-
 export const logoutTC = () => (dispatch: Dispatch<ActionsType>) => {
     dispatch(setAppStatusAC('loading'))
     authAPI.logout()

@@ -8,7 +8,7 @@ import {Task} from './Task/Task'
 import {TaskStatuses, TaskType} from '../../../api/todolists-api'
 import {FilterValuesType, TodolistDomainType} from '../todolists-reducer'
 import {useDispatch} from 'react-redux'
-import {fetchTasksTC} from '../tasks-reducer'
+import {fetchTasksTC} from './Task/tasks-reducer'
 import style from './Todolist.module.scss'
 
 
@@ -26,7 +26,6 @@ type TodolistPropsType = {
 }
 
 export const Todolist = React.memo(function ({demo = false, ...props}: TodolistPropsType) {
-    console.log('Todolist called')
 
     const dispatch = useDispatch()
 
@@ -97,7 +96,6 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                     </Button>
                 </ButtonGroup>
                 <ProgressBar tasks={props.tasks}/>
-
             </div>
         </div>
     )
