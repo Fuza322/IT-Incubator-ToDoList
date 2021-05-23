@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react'
-import {AppBar, Button, Container, IconButton, LinearProgress, Toolbar, Typography} from '@material-ui/core'
-import {Menu} from '@material-ui/icons'
+import {AppBar, Button, Container, LinearProgress, Toolbar, Typography} from '@material-ui/core'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
 import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
 import {useDispatch, useSelector} from 'react-redux'
@@ -10,16 +9,19 @@ import {Redirect, Route, Switch} from 'react-router-dom'
 import {Login} from '../features/Login/Login'
 import {CircularProgress} from '@material-ui/core'
 import {logoutTC} from '../features/Login/auth-reducer'
+import style from './App.module.scss'
+import headerLogoImg from '../assets/images/primaryLogo.png'
 
 type PropsType = {
     demo?: boolean
 }
 
-function App({demo = false}: PropsType) {
+export function App({demo = false}: PropsType) {
 
     const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
     const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status)
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
+    const email = useSelector<AppRootStateType, string>(state => state.auth.email)
 
     const dispatch = useDispatch()
 
@@ -42,19 +44,42 @@ function App({demo = false}: PropsType) {
         <div>
             <ErrorSnackbar/>
             <AppBar position="static">
-                <Toolbar>
-                    <IconButton edge="start" color="inherit" aria-label="menu">
-                        <Menu/>
-                    </IconButton>
-                    <Typography variant="h6">
-                        News
-                    </Typography>
-                    {isLoggedIn && <Button color="inherit" onClick={loguotHandler}>LogOut</Button>}
-
+                <Toolbar className={style.header}>
+                    <a href='/' className={style.linkHeaderLogo}>
+                        <div className={style.headerLogoContainer}>
+                            <div className={style.headerLogo}>
+                                <img src={headerLogoImg} alt={'LogoImage'} className={style.headerLogoImg}/>
+                            </div>
+                            <Typography className={style.headerLogoText}>
+                                Task Tracker
+                            </Typography>
+                        </div>
+                    </a>
+                    {
+                        isLoggedIn
+                            ?
+                            <div className={style.headerDisplay}>
+                                <div className={style.headerUserInfo}>
+                                    <span className={style.headerUserText}>User:</span>
+                                    <span className={style.headerEmailText}>{email}</span>
+                                </div>
+                                <div>
+                                    <Button onClick={loguotHandler} className={style.headerButton}>Sign out</Button>
+                                </div>
+                            </div>
+                            :
+                            <div className={style.headerDisplay}>
+                                <div>
+                                    <Button href={'https://social-network.samuraijs.com/signUp'} className={style.headerButton}>
+                                        Sign up
+                                    </Button>
+                                </div>
+                            </div>
+                    }
                 </Toolbar>
                 {status === 'loading' && <LinearProgress/>}
             </AppBar>
-            <Container fixed>
+            <Container>
                 <Switch>
                     <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>
                     <Route path={'/login'} render={() => <Login/>}/>
@@ -65,5 +90,3 @@ function App({demo = false}: PropsType) {
         </div>
     )
 }
-
-export default App

@@ -16,6 +16,7 @@ import {Grid, Paper} from '@material-ui/core'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
 import { Redirect } from 'react-router-dom'
+import style from './TodolistsList.module.scss'
 
 type PropsType = {
     demo?: boolean

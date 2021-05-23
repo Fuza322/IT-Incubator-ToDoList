@@ -3,6 +3,7 @@ import {Checkbox, IconButton} from '@material-ui/core'
 import {EditableSpan} from '../../../../components/EditableSpan/EditableSpan'
 import {Delete} from '@material-ui/icons'
 import {TaskStatuses, TaskType} from '../../../../api/todolists-api'
+import style from './Task.module.scss'
 
 type TaskPropsType = {
     task: TaskType
@@ -31,7 +32,10 @@ export const Task = React.memo((props: TaskPropsType) => {
         />
 
         <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
-        <IconButton onClick={onClickHandler}>
+        <input style={{margin: '10px'}} type="date" id="start" name="trip-start"
+            /*value="2021-05-22"*/
+               min="2021-01-01"/>
+        <IconButton onClick={onClickHandler} disabled={props.task.entityStatus === 'loading'}>
             <Delete/>
         </IconButton>
     </div>

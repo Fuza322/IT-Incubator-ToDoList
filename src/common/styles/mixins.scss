@@ -1,0 +1,50 @@
+@import 'variebles';
+
+@mixin container() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 50px 0;
+  border-radius: 5px;
+}
+
+@mixin flexBox($flexDirection, $justifyContent, $alineItems, $flexWrap) {
+  display: flex;
+  flex-direction: $flexDirection;
+  justify-content: $justifyContent;
+  align-items: $alineItems;
+  flex-wrap: $flexWrap;
+}
+
+@mixin text($fontFamily, $fontSize, $fontWeight, $textColor) {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  color: $textColor;
+}
+
+@mixin inputAndTextArea($width, $height, $color, $border, $borderRadius, $transition) {
+  width: $width;
+  height: $height;
+  color: $color;
+  border: $border;
+  border-radius: $borderRadius;
+  outline: none;
+  transition: $transition;
+}
+
+@mixin button($width, $height, $fonstSize, $backgroundColor, $borderColor) {
+  width: $width;
+  height: $height;
+  background-color: $backgroundColor;
+  overflow: hidden;
+  border: 3px solid $borderColor;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: .5s;
+  @include text($fontFamilyStyle, $fonstSize, 400, $textColor);
+}

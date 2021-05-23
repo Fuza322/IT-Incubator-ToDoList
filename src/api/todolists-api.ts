@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {RequestStatusType} from "../app/app-reducer";
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.1/',
@@ -17,7 +18,7 @@ export type LoginParamsType = {
 
 export const authAPI = {
     login(data: LoginParamsType) {
-        return instance.post<ResponseType<{ userId: number }>>('auth/login', data)
+        return instance.post<ResponseType<{userId: number}>>('auth/login', data)
     },
     me() {
         return instance.get<ResponseType<AuthMeResponceType>>('auth/me')
@@ -25,7 +26,6 @@ export const authAPI = {
     logout() {
         return instance.delete<ResponseType>('auth/login')
     }
-
 }
 
 // api
@@ -35,7 +35,7 @@ export const todolistsAPI = {
         return promise;
     },
     createTodolist(title: string) {
-        const promise = instance.post<ResponseType<{ item: TodolistType }>>('todo-lists', {title: title});
+        const promise = instance.post<ResponseType<{item: TodolistType}>>('todo-lists', {title: title});
         return promise;
     },
     deleteTodolist(id: string) {
@@ -53,7 +53,7 @@ export const todolistsAPI = {
         return instance.delete<ResponseType>(`todo-lists/${todolistId}/tasks/${taskId}`);
     },
     createTask(todolistId: string, taskTitile: string) {
-        return instance.post<ResponseType<{ item: TaskType }>>(`todo-lists/${todolistId}/tasks`, {title: taskTitile});
+        return instance.post<ResponseType<{item: TaskType}>>(`todo-lists/${todolistId}/tasks`, {title: taskTitile});
     },
     updateTask(todolistId: string, taskId: string, model: UpdateTaskModelType) {
         return instance.put<ResponseType<TaskType>>(`todo-lists/${todolistId}/tasks/${taskId}`, model);
@@ -66,7 +66,6 @@ export type AuthMeResponceType = {
     email: string,
     login: string
 }
-
 export type TodolistType = {
     id: string
     title: string
@@ -85,15 +84,13 @@ export enum TaskStatuses {
     Completed = 2,
     Draft = 3
 }
-
 export enum TaskPriorities {
     Low = 0,
     Middle = 1,
-    Hi = 2,
+    Hight = 2,
     Urgently = 3,
     Later = 4
 }
-
 export type TaskType = {
     description: string
     title: string
@@ -105,6 +102,7 @@ export type TaskType = {
     todoListId: string
     order: number
     addedDate: string
+    entityStatus: RequestStatusType
 }
 export type UpdateTaskModelType = {
     title: string

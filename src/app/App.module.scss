@@ -1,0 +1,100 @@
+@import 'src/common/styles/mixins';
+@import 'src/common/styles/variebles';
+
+.header {
+  @include flexBox(row, space-between, center, nowrap);
+  height: 85px;
+
+  .linkHeaderLogo {
+    text-decoration: none;
+
+    .headerLogoContainer {
+      @include flexBox(row, center, center, nowrap);
+
+      .headerLogo {
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        border-radius: 25px;
+        border: 3px solid white;
+        margin-right: 20px;
+
+
+        .headerLogoImg {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      .headerLogoText {
+        @include text($fontFamilyStyle, 23px, 700, $textColor);
+        @media only screen and (max-width: 750px) {
+          width: 110px;
+        }
+      }
+    }
+  }
+
+  .headerDisplay {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    @media only screen and (max-width: 750px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .headerUserInfo {
+      @media only screen and (max-width: 500px) {
+        display: none;
+      }
+
+      .headerUserText {
+        @include text($fontFamilyStyle, 16px, 600, $textColor);
+        margin: 0 5px 0 0;
+        @media only screen and (max-width: 750px) {
+          @include text($fontFamilyStyle, 14px, 600, $textColor);
+        }
+      }
+
+      .headerEmailText {
+        @include text($fontFamilyStyle, 16px, 500, $textColor);
+        margin: 0 20px 0 0;
+        @media only screen and (max-width: 750px) {
+          @include text($fontFamilyStyle, 14px, 500, $textColor);
+          margin: 0;
+        }
+      }
+    }
+
+
+    .headerButton {
+      @include button(110px, 35px, 16px, $primaryColor, $textColor);
+      text-transform: capitalize;
+      padding: 0;
+      margin: 0;
+      @media only screen and (max-width: 750px) {
+        @include button(100px, 30px, 14px, $primaryColor, $textColor);
+        padding: 0;
+        margin: 0;
+      }
+      @media only screen and (max-width: 500px) {
+        @include button(100px, 30px, 14px, $primaryColor, $textColor);
+        padding: 0;
+        margin: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      @media only screen and (min-width: 850px) and (min-height: 600px) {
+        &:hover {
+          background-color: $secondColor;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
