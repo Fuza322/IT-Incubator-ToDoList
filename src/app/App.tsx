@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {AppBar, Button, Container, LinearProgress, Toolbar, Typography} from '@material-ui/core'
+import {AppBar, Button, Container, Grid, LinearProgress, Toolbar, Typography} from '@material-ui/core'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
 import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
 import {useDispatch, useSelector} from 'react-redux'
@@ -44,7 +44,7 @@ export function App({demo = false}: PropsType) {
         <div>
             <ErrorSnackbar/>
             <AppBar position="static">
-                <Toolbar className={style.header}>
+                <Toolbar data-aos="zoom-in-right" data-aos-duration='800' className={style.header}>
                     <a href='/' className={style.linkHeaderLogo}>
                         <div className={style.headerLogoContainer}>
                             <div className={style.headerLogo}>

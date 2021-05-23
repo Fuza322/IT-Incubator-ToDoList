@@ -105,7 +105,7 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
     return (
         <div>
             {/*<Particles className={style.particles} params={particlesOptions}/>*/}
-            <Grid container style={{padding: '20px'}}>
+            <Grid data-aos='fade-right' data-aos-duration='600' container style={{padding: '20px 0'}}>
                 <AddItemForm addItem={addTodolist}/>
             </Grid>
             <Grid container spacing={3}>
