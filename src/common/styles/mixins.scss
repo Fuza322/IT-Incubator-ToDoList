@@ -8,7 +8,6 @@
   width: 80%;
   min-height: 100%;
   margin: 0 auto;
-  padding: 50px 0;
   border-radius: 5px;
 }
 
@@ -27,9 +26,8 @@
   color: $textColor;
 }
 
-@mixin inputAndTextArea($width, $height, $color, $border, $borderRadius, $transition) {
+@mixin inputAndTextArea($width, $color, $border, $borderRadius, $transition) {
   width: $width;
-  height: $height;
   color: $color;
   border: $border;
   border-radius: $borderRadius;
