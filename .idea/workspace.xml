@@ -4,8 +4,6 @@
     <list default="true" id="80ac300a-6491-4f62-8b40-c7d3c1b3e844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +46,7 @@
       <workItem from="1621783853645" duration="14211000" />
       <workItem from="1621798686357" duration="146000" />
       <workItem from="1621798856383" duration="4880000" />
+      <workItem from="1621853783618" duration="1148000" />
     </task>
     <servers />
   </component>
@@ -59,37 +58,41 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1621790595896" />
+    <state x="500" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1621854384153">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="500" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1621854384153" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1621783893748">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1621783893748" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1621798794124">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1621853827838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621798794124" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1621798794124">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621853827838" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1621853827838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621798794124" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1621798794124">
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621853827838" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1621853827838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621798794124" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1621798794124">
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621853827838" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1621853827838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621798794124" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1621793737674">
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621853827838" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1621854475398">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621793737674" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621854475398" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1621675503799">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1621675503799" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1621793728378">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1621854478408">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1621793728378" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1621854478408" />
   </component>
 </project>
