@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react'
-import {Container} from '@material-ui/core'
+import {AppRootStateType} from './store'
+import {Header} from '../components/Header/Header'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
+import {Login} from '../features/Login/Login'
 import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
 import {useDispatch, useSelector} from 'react-redux'
 import {initializeAppTC} from './app-reducer'
 import {Redirect, Route, Switch} from 'react-router-dom'
-import {Login} from '../features/Login/Login'
-import {Header} from "../components/Header/Header";
+import {CircularProgress, Container} from '@material-ui/core'
 
 type PropsType = {
     demo?: boolean
@@ -14,11 +15,20 @@ type PropsType = {
 
 export function App({demo = false}: PropsType) {
 
+    const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(initializeAppTC())
     }, [dispatch])
+
+    if (!isInitialized) {
+        return <div
+            style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}>
+            <CircularProgress/>
+        </div>
+    }
 
     return (
         <div>

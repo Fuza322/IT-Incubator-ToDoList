@@ -1,15 +1,14 @@
 import React from 'react'
-import {AppBar, Button, CircularProgress, LinearProgress, Toolbar, Typography} from '@material-ui/core'
-import style from '../Header/Header.module.scss'
-import headerLogoImg from '../../assets/images/primaryLogo.png'
-import {useDispatch, useSelector} from 'react-redux'
 import {AppRootStateType} from '../../app/store'
 import {RequestStatusType} from '../../app/app-reducer'
+import {useDispatch, useSelector} from 'react-redux'
 import {logoutTC} from '../../features/Login/auth-reducer'
+import {AppBar, Button, LinearProgress, Toolbar, Typography} from '@material-ui/core'
+import headerLogoImg from '../../assets/images/primaryLogo.png'
+import style from '../Header/Header.module.scss'
 
 export function Header() {
 
-    const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
     const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status)
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const email = useSelector<AppRootStateType, string>(state => state.auth.email)
@@ -18,13 +17,6 @@ export function Header() {
 
     const loguotHandler = () => {
         dispatch(logoutTC())
-    }
-
-    if (!isInitialized) {
-        return <div
-            style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}>
-            <CircularProgress/>
-        </div>
     }
 
     return (
