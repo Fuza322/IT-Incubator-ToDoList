@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80ac300a-6491-4f62-8b40-c7d3c1b3e844" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/styles/variebles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/styles/variebles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" afterDir="false" />
     </list>
@@ -56,7 +52,7 @@
       <workItem from="1621931529897" duration="1073000" />
       <workItem from="1622016988969" duration="157000" />
       <workItem from="1622017301871" duration="609000" />
-      <workItem from="1622056812186" duration="3738000" />
+      <workItem from="1622056812186" duration="4656000" />
     </task>
     <servers />
   </component>
@@ -72,10 +68,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="500" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1621854384153" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1621855776407">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1622063345204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1621855776407" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622063345204" />
     <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1621853827838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

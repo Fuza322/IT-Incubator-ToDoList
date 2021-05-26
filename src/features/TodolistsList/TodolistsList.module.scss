@@ -13,6 +13,17 @@
   z-index: -999;
 }
 
-.todolistListInputContainer {
+.todolistsListInputContainer {
   margin: 35px 0;
+}
+
+.todolistsListContainer {
+  @include container();
+  width: 100%;
+
+  .todolistslits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
 }
