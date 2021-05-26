@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80ac300a-6491-4f62-8b40-c7d3c1b3e844" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/Login/Login.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Login/Login.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/styles/variebles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/styles/variebles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +25,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../IT-Incubator/Projects/portfoliofuza322" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="ts.external.directory.path" value="D:\Education\BSUIR\IT-Incubator-ToDoList\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -47,7 +52,11 @@
       <workItem from="1621783853645" duration="14211000" />
       <workItem from="1621798686357" duration="146000" />
       <workItem from="1621798856383" duration="4880000" />
-      <workItem from="1621853783618" duration="31512000" />
+      <workItem from="1621853783618" duration="31779000" />
+      <workItem from="1621931529897" duration="1073000" />
+      <workItem from="1622016988969" duration="157000" />
+      <workItem from="1622017301871" duration="609000" />
+      <workItem from="1622056812186" duration="3738000" />
     </task>
     <servers />
   </component>
@@ -83,10 +92,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621853827838" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1621854475398">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1622061893593">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621854475398" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622061893593" />
     <state x="478" y="145" width="579" height="534" key="find.popup" timestamp="1621881679752">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -95,9 +104,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1621675503799" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1621877190821">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1622061790579">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1621877190821" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622061790579" />
   </component>
 </project>

@@ -84,28 +84,38 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
 
     const particlesOptions = {
         "particles": {
-            "number": {"value": 90, "density": {"enable": true, "value_area": 800}},
-            "color": {"value": "#3F51B5"},
+            "number": {"value": 80, "density": {"enable": true, "value_area": 800}},
+            "color": {"value": "#0085eb"},
             "shape": {
                 "type": "circle",
-                "stroke": {"width": 0, "color": "#"},
-                "polygon": {"nb_sides": 5},
+                "stroke": {"width": 0, "color": "#000000"},
+                "polygon": {"nb_sides": 5}
             },
-            "size": {"value": 7, "random": true, "anim": {"enable": false, "speed": 10, "sync": false}},
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {"enable": false, "speed": 1, "opacity_min": 0.1, "sync": false}
+            },
+            "size": {
+                "value": 10,
+                "random": true,
+                "anim": {"enable": false, "speed": 40, "size_min": 0.1, "sync": false}
+            },
+            "line_linked": {"enable": true, "distance": 150, "color": "#0085eb", "opacity": 0.4, "width": 1},
             "move": {
-                "speed": 1,
+                "enable": true,
+                "speed": 0.4,
                 "random": false,
                 "straight": false,
                 "bounce": false,
                 "attract": {"enable": false, "rotateX": 600, "rotateY": 1200}
             }
-        },
+        }
     }
-
     return (
         <div>
-            {/*<Particles className={style.particles} params={particlesOptions}/>*/}
-            <Grid data-aos='fade-right' data-aos-duration='600' container style={{padding: '20px 0'}}>
+            <Particles className={style.particles} params={particlesOptions}/>
+            <Grid data-aos='fade-right' data-aos-duration='600' container className={style.todolistListInputContainer}>
                 <AddItemForm addItem={addTodolist}/>
             </Grid>
             <Grid container spacing={3}>
