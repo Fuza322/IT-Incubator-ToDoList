@@ -51,7 +51,7 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
     const onAllClickHandler = useCallback(() => props.changeFilter('all', props.todolist.id), [props.todolist.id, props.changeFilter])
     const onActiveClickHandler = useCallback(() => props.changeFilter('active', props.todolist.id), [props.todolist.id, props.changeFilter])
     const onCompletedClickHandler = useCallback(() => props.changeFilter('completed', props.todolist.id), [props.todolist.id, props.changeFilter])
-    
+
     let tasksForTodolist = props.tasks
 
     if (props.todolist.filter === 'active') {
@@ -62,39 +62,43 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
     }
 
     return (
-        <div>
-            <h3>
-                <EditableSpan value={props.todolist.title} onChange={changeTodolistTitle}/>
-                <IconButton onClick={removeTodolist} disabled={props.todolist.entityStatus === 'loading'}>
-                    <Delete/>
-                </IconButton>
-            </h3>
-            <AddItemForm addItem={addTask} disabled={props.todolist.entityStatus === 'loading'}/>
-            <div>
-                {tasksForTodolist.map(t =>
-                    <Task key={t.id} task={t} todolistId={props.todolist.id}
-                          removeTask={props.removeTask}
-                          changeTaskTitle={props.changeTaskTitle}
-                          changeTaskStatus={props.changeTaskStatus}
-                    />)
-                }
-            </div>
-            <div style={{paddingTop: '10px'}}>
-                <ButtonGroup color={'primary'}>
-                    <Button variant={props.todolist.filter === 'all' ? 'contained' : 'outlined'}
-                            onClick={onAllClickHandler}
-                            color={'default'}
-                    >All
-                    </Button>
-                    <Button variant={props.todolist.filter === 'active' ? 'contained' : 'outlined'}
-                            onClick={onActiveClickHandler}
-                            color={'primary'}>Active
-                    </Button>
-                    <Button variant={props.todolist.filter === 'completed' ? 'contained' : 'outlined'}
-                            onClick={onCompletedClickHandler}
-                            color={'secondary'}>Completed
-                    </Button>
-                </ButtonGroup>
+        <div className={style.todolistBlock}>
+            <div className={style.todolistContainer}>
+                <div className={style.todolistTitleContainer}>
+                    <h3 className={style.todolistTitle}>
+                        <EditableSpan value={props.todolist.title} onChange={changeTodolistTitle}/>
+                    </h3>
+                    <IconButton onClick={removeTodolist} disabled={props.todolist.entityStatus === 'loading'}>
+                        <Delete/>
+                    </IconButton>
+                </div>
+                <AddItemForm addItem={addTask} disabled={props.todolist.entityStatus === 'loading'}/>
+                <div>
+                    {tasksForTodolist.map(t =>
+                        <Task key={t.id} task={t} todolistId={props.todolist.id}
+                              removeTask={props.removeTask}
+                              changeTaskTitle={props.changeTaskTitle}
+                              changeTaskStatus={props.changeTaskStatus}
+                        />)
+                    }
+                </div>
+                <div className={style.todolistFilterContainer}>
+                    <ButtonGroup color={'primary'}>
+                        <Button variant={props.todolist.filter === 'all' ? 'contained' : 'outlined'}
+                                onClick={onAllClickHandler}
+                                color={'default'}
+                        >All
+                        </Button>
+                        <Button variant={props.todolist.filter === 'active' ? 'contained' : 'outlined'}
+                                onClick={onActiveClickHandler}
+                                color={'primary'}>Active
+                        </Button>
+                        <Button variant={props.todolist.filter === 'completed' ? 'contained' : 'outlined'}
+                                onClick={onCompletedClickHandler}
+                                color={'secondary'}>Completed
+                        </Button>
+                    </ButtonGroup>
+                </div>
                 <ProgressBar tasks={props.tasks}/>
             </div>
         </div>

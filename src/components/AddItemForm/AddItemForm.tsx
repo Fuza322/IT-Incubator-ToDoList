@@ -36,16 +36,17 @@ export const AddItemForm = React.memo(function ({addItem, disabled = false}: Add
     }
 
     return (
-        <div>
-            <TextField variant='outlined'
-                       disabled={disabled}
-                       error={!!error}
-                       value={title}
-                       onChange={onChangeHandler}
-                       onKeyPress={onKeyPressHandler}
-                       label='Title'
-                       helperText={error}
-                       className={style.imputStyle}
+        <div className={style.addItemContainer}>
+            <TextField
+                variant='outlined'
+                disabled={disabled}
+                error={!!error}
+                value={title}
+                onChange={onChangeHandler}
+                onKeyPress={onKeyPressHandler}
+                label='Title'
+                helperText={error}
+                className={style.imputStyle}
             />
             <IconButton color='primary' onClick={addItemHandler} disabled={disabled}>
                 <AddBox/>

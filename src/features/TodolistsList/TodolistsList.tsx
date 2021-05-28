@@ -12,7 +12,7 @@ import {
 } from './todolists-reducer'
 import {addTaskTC, removeTaskTC, TasksStateType, updateTaskTC} from './Todolist/Task/tasks-reducer'
 import {TaskStatuses} from '../../api/todolists-api'
-import {Grid, Paper} from '@material-ui/core'
+import {Grid} from '@material-ui/core'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
 import {Redirect} from 'react-router-dom'
@@ -119,27 +119,25 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                 <AddItemForm addItem={addTodolist}/>
             </Grid>
             <div className={style.todolistsListContainer}>
-                <Grid container spacing={3}>
+                <Grid className={style.todolistslits}>
                     {
                         todolists.map(tl => {
                             let allTodolistTasks = tasks[tl.id]
-
-                            return <Grid item key={tl.id}>
-                                <Paper style={{padding: '10px'}}>
-                                    <Todolist
-                                        todolist={tl}
-                                        tasks={allTodolistTasks}
-                                        removeTask={removeTask}
-                                        changeFilter={changeFilter}
-                                        addTask={addTask}
-                                        changeTaskStatus={changeStatus}
-                                        removeTodolist={removeTodolist}
-                                        changeTaskTitle={changeTaskTitle}
-                                        changeTodolistTitle={changeTodolistTitle}
-                                        demo={demo}
-                                    />
-                                </Paper>
-                            </Grid>
+                            return (
+                                <Todolist
+                                    key={tl.id}
+                                    todolist={tl}
+                                    tasks={allTodolistTasks}
+                                    removeTask={removeTask}
+                                    changeFilter={changeFilter}
+                                    addTask={addTask}
+                                    changeTaskStatus={changeStatus}
+                                    removeTodolist={removeTodolist}
+                                    changeTaskTitle={changeTaskTitle}
+                                    changeTodolistTitle={changeTodolistTitle}
+                                    demo={demo}
+                                />
+                            )
                         })
                     }
                 </Grid>

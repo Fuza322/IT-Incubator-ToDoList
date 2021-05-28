@@ -1,0 +1,8 @@
+@import 'src/common/styles/mixins';
+@import 'src/common/styles/variebles';
+
+.progressContainer {
+  @include flexBox(row, flex-start, center, nowrap);
+  @include text($fontFamilyStyle, 16px, 600, $primaryColor);
+
+}

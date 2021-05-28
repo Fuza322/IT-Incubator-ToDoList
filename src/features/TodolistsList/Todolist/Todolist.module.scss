@@ -1,0 +1,28 @@
+@import 'src/common/styles/mixins';
+@import 'src/common/styles/variebles';
+
+.todolistBlock {
+  background-color: $textColor;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 1px 10px $secondColor;
+
+  .todolistContainer {
+    padding: 10px;
+
+    .todolistTitleContainer {
+      @include flexBox(row, flex-start, center, nowrap);
+      width: 100%;
+
+      .todolistTitle {
+        @include text($fontFamilyStyle, 20px, 600, $primaryColor);
+      }
+    }
+
+    .todolistFilterContainer {
+      width: 100%;
+      @include flexBox(row, flex-start, center, nowrap);
+      padding: 5px 0;
+    }
+  }
+}

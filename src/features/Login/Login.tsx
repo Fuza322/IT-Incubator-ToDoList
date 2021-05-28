@@ -1,5 +1,5 @@
 import React from 'react'
-import {Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, TextField, Button, Grid} from '@material-ui/core'
+import {Checkbox, FormControl, FormControlLabel, TextField, Button, Grid} from '@material-ui/core'
 import {useFormik} from "formik";
 import {loginTC} from "./auth-reducer";
 import {useDispatch, useSelector} from "react-redux";
@@ -69,7 +69,6 @@ export const Login = React.memo(function () {
                                 <li>Set a deadline for completed tasks;</li>
                                 <li>Display the percentage of completed tasks;</li>
                                 <li>Manage and control tasks with user interface;</li>
-
                             </ul>
                         </div>
                     </div>
@@ -81,10 +80,8 @@ export const Login = React.memo(function () {
                             <div className={style.authTextContainer}>
                                 <h3>Authorization</h3>
                             </div>
-
                             {/*<p>Email: free@samuraijs.com</p>*/}
                             {/*<p>Password: free</p>*/}
-
                             <TextField
                                 variant='outlined'
                                 label="Email"
@@ -93,7 +90,7 @@ export const Login = React.memo(function () {
                             {
                                 formik.touched.email && formik.errors.email
                                     ? <div className={style.authErrorText}>{formik.errors.email}</div>
-                                    : <div className={style.authErrorText}> </div>
+                                    : <div className={style.authErrorText}></div>
                             }
                             <TextField
                                 variant='outlined'
@@ -104,7 +101,7 @@ export const Login = React.memo(function () {
                             {
                                 formik.touched.password && formik.errors.password
                                     ? <div className={style.authErrorText}>{formik.errors.password}</div>
-                                    : <div className={style.authErrorText}> </div>
+                                    : <div className={style.authErrorText}></div>
                             }
                             <FormControlLabel
                                 className={style.authRememberMeText}
@@ -114,7 +111,8 @@ export const Login = React.memo(function () {
                                         {...formik.getFieldProps('rememberMe')}
                                     />}
                             />
-                            <Button className={style.authButton} type={'submit'} variant={'contained'} color={'primary'}>Login</Button>
+                            <Button className={style.authButton} type={'submit'} variant={'contained'}
+                                    color={'primary'}>Login</Button>
                         </FormControl>
                     </form>
                 </Grid>

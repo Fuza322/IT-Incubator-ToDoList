@@ -35,9 +35,10 @@ export const Task = React.memo((props: TaskPropsType) => {
             />
 
             <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
-            <input style={{margin: '10px'}} type='date' id='start' name='trip-start'
-                /*value='2021-05-22'*/
-                   min='2021-01-01'/>
+            {/*<input style={{margin: '10px'}} type='date' id='start' name='trip-start'*/}
+            {/*    value='2021-05-22'*/}
+            {/*       min='2021-01-01'*/}
+            {/*/>*/}
             <IconButton onClick={onClickHandler} disabled={props.task.entityStatus === 'loading'}>
                 <Delete/>
             </IconButton>
