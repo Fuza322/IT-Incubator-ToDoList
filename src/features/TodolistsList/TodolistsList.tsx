@@ -58,6 +58,11 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         dispatch(thunk)
     }, [dispatch])
 
+    const changeTaskDescription = useCallback(function (id: string, newDescription: string, todolistId: string) {
+        const thunk = updateTaskTC(id, {description: newDescription}, todolistId)
+        dispatch(thunk)
+    }, [dispatch])
+
     const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
         const action = changeTodolistFilterAC(todolistId, value)
         dispatch(action)
@@ -128,12 +133,13 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                                     key={tl.id}
                                     todolist={tl}
                                     tasks={allTodolistTasks}
+                                    changeTaskStatus={changeStatus}
+                                    changeTaskTitle={changeTaskTitle}
+                                    changeTaskDescription={changeTaskDescription}
                                     removeTask={removeTask}
                                     changeFilter={changeFilter}
                                     addTask={addTask}
-                                    changeTaskStatus={changeStatus}
                                     removeTodolist={removeTodolist}
-                                    changeTaskTitle={changeTaskTitle}
                                     changeTodolistTitle={changeTodolistTitle}
                                     demo={demo}
                                 />
