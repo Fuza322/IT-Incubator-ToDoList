@@ -22,7 +22,7 @@
     .todolistFilterContainer {
       width: 100%;
       @include flexBox(row, flex-start, center, nowrap);
-      padding: 5px 0;
+      padding: 5px 0 0 0;
     }
   }
 }
