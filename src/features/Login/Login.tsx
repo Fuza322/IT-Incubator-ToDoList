@@ -1,12 +1,12 @@
 import React from 'react'
-import {Checkbox, FormControl, FormControlLabel, TextField, Button, Grid} from '@material-ui/core'
-import {useFormik} from "formik";
-import {loginTC} from "./auth-reducer";
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../app/store";
-import {Redirect} from 'react-router-dom';
-import style from './Login.module.scss'
+import {Redirect} from 'react-router-dom'
+import {AppRootStateType} from '../../app/store'
+import {useFormik} from 'formik'
+import {loginTC} from './auth-reducer'
+import {useDispatch, useSelector} from 'react-redux'
 import projectImage from './../../assets/images/todolist.png'
+import {Checkbox, FormControl, FormControlLabel, TextField, Button, Grid} from '@material-ui/core'
+import style from './Login.module.scss'
 
 type FormikErrorType = {
     email?: string
@@ -29,21 +29,21 @@ export const Login = React.memo(function () {
         validate: (values) => {
             const errors: FormikErrorType = {};
             if (!values.email) {
-                errors.email = 'Required.';
+                errors.email = 'Required.'
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-                errors.email = 'Invalid email address.';
+                errors.email = 'Invalid email address.'
             }
             if (!values.password) {
                 errors.password = 'Required.'
             } else if (values.password.length < 6) {
                 errors.password = 'Password must be more than six characters.'
             }
-            return errors;
+            return errors
         },
         onSubmit: values => {
             dispatch(loginTC(values))
             formik.resetForm()
-        },
+        }
     })
 
     if (isLoggedIn) {
@@ -84,7 +84,7 @@ export const Login = React.memo(function () {
                             {/*<p>Password: free</p>*/}
                             <TextField
                                 variant='outlined'
-                                label="Email"
+                                label='Email'
                                 {...formik.getFieldProps('email')}
                             />
                             {
@@ -94,8 +94,8 @@ export const Login = React.memo(function () {
                             }
                             <TextField
                                 variant='outlined'
-                                type="password"
-                                label="Password"
+                                type='password'
+                                label='Password'
                                 {...formik.getFieldProps('password')}
                             />
                             {
@@ -112,7 +112,8 @@ export const Login = React.memo(function () {
                                     />}
                             />
                             <Button className={style.authButton} type={'submit'} variant={'contained'}
-                                    color={'primary'}>Login</Button>
+                                    color={'primary'}>Login
+                            </Button>
                         </FormControl>
                     </form>
                 </Grid>

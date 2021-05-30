@@ -1,7 +1,7 @@
 import {Dispatch} from 'redux'
 import {authAPI} from '../api/todolists-api'
 import {setIsLoggedInAC, setIsLoggedInActionType} from '../features/Login/auth-reducer'
-import {handleServerNetworkError} from "../utils/error-utils";
+import {handleServerNetworkError} from '../utils/error-utils'
 
 const initialState: InitialStateType = {
     status: 'idle',
@@ -45,7 +45,7 @@ export const initializeAppTC = () => (dispatch: Dispatch<ActionsType>) => {
     authAPI.me()
         .then(res => {
             if (res.data.resultCode === 0) {
-                dispatch(setIsLoggedInAC(true, res.data.data.email));
+                dispatch(setIsLoggedInAC(true, res.data.data.email))
             }
         })
         .catch((error) => {

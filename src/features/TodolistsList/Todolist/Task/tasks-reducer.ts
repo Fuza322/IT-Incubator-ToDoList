@@ -92,11 +92,10 @@ export const addTaskTC = (title: string, todolistId: string) => (dispatch: Dispa
         .then(res => {
             if (res.data.resultCode === 0) {
                 const task = res.data.data.item
-                const action = addTaskAC(task)
-                dispatch(action)
+                dispatch(addTaskAC(task))
                 dispatch(setAppStatusAC('succeeded'))
             } else {
-                handleServerAppError(res.data, dispatch);
+                handleServerAppError(res.data, dispatch)
             }
         })
         .catch((error) => {
@@ -109,12 +108,11 @@ export const removeTaskTC = (taskId: string, todolistId: string) => (dispatch: D
     todolistsAPI.deleteTask(todolistId, taskId)
         .then(res => {
             if (res.data.resultCode === 0) {
-                const action = removeTaskAC(taskId, todolistId)
-                dispatch(action)
+                dispatch(removeTaskAC(taskId, todolistId))
                 dispatch(setAppStatusAC('succeeded'))
                 dispatch(changeTaskEntityStatusAC(todolistId, taskId, 'succeeded'))
             } else {
-                handleServerAppError(res.data, dispatch);
+                handleServerAppError(res.data, dispatch)
             }
         })
         .catch((error) => {
@@ -143,16 +141,15 @@ export const updateTaskTC = (taskId: string, domainModel: UpdateDomainTaskModelT
         todolistsAPI.updateTask(todolistId, taskId, apiModel)
             .then(res => {
                 if (res.data.resultCode === 0) {
-                    const action = updateTaskAC(taskId, domainModel, todolistId)
-                    dispatch(action)
+                    dispatch(updateTaskAC(taskId, domainModel, todolistId))
                     dispatch(changeTaskEntityStatusAC(todolistId, taskId, 'succeeded'))
                 } else {
-                    handleServerAppError(res.data, dispatch);
+                    handleServerAppError(res.data, dispatch)
                 }
                 dispatch(setAppStatusAC('succeeded'))
             })
             .catch((error) => {
-                handleServerNetworkError(error, dispatch);
+                handleServerNetworkError(error, dispatch)
             })
     }
 

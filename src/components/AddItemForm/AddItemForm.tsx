@@ -1,6 +1,6 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import {IconButton, TextField} from '@material-ui/core';
-import {AddBox} from '@material-ui/icons';
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
+import {IconButton, TextField} from '@material-ui/core'
+import {AddBox} from '@material-ui/icons'
 import style from './AddItemForm.module.scss'
 
 type AddItemFormPropsType = {

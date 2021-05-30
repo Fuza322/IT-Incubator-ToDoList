@@ -1,14 +1,14 @@
 import React, {useCallback, useEffect} from 'react'
-import {AddItemForm} from '../../../components/AddItemForm/AddItemForm'
-import {EditableSpan} from '../../../components/EditableSpan/EditableSpan'
-import {ProgressBar} from "../../../components/ProgressBar/ProgressBar";
-import {Button, ButtonGroup, IconButton} from '@material-ui/core'
-import {Delete} from '@material-ui/icons'
-import {Task} from './Task/Task'
 import {TaskStatuses, TaskType} from '../../../api/todolists-api'
 import {FilterValuesType, TodolistDomainType} from '../todolists-reducer'
 import {useDispatch} from 'react-redux'
 import {fetchTasksTC} from './Task/tasks-reducer'
+import {AddItemForm} from '../../../components/AddItemForm/AddItemForm'
+import {EditableSpan} from '../../../components/EditableSpan/EditableSpan'
+import {ProgressBar} from '../../../components/ProgressBar/ProgressBar'
+import {Task} from './Task/Task'
+import {Button, ButtonGroup, IconButton} from '@material-ui/core'
+import {Delete} from '@material-ui/icons'
 import style from './Todolist.module.scss'
 
 
@@ -34,8 +34,7 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
         if (demo) {
             return
         }
-        const thunk = fetchTasksTC(props.todolist.id)
-        dispatch(thunk)
+        dispatch(fetchTasksTC(props.todolist.id))
     }, [demo, dispatch, props.todolist.id])
 
     const addTask = useCallback((title: string) => {
@@ -76,7 +75,9 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                 <AddItemForm addItem={addTask} disabled={props.todolist.entityStatus === 'loading'}/>
                 <div>
                     {tasksForTodolist.map(t =>
-                        <Task key={t.id} task={t} todolistId={props.todolist.id}
+                        <Task key={t.id}
+                              task={t}
+                              todolistId={props.todolist.id}
                               changeTaskStatus={props.changeTaskStatus}
                               changeTaskTitle={props.changeTaskTitle}
                               changeTaskDescription={props.changeTaskDescription}
@@ -88,8 +89,7 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                     <ButtonGroup color={'primary'}>
                         <Button variant={props.todolist.filter === 'all' ? 'contained' : 'outlined'}
                                 onClick={onAllClickHandler}
-                                color={'default'}
-                        >All
+                                color={'default'}>All
                         </Button>
                         <Button variant={props.todolist.filter === 'active' ? 'contained' : 'outlined'}
                                 onClick={onActiveClickHandler}

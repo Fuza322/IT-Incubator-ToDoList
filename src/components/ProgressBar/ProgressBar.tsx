@@ -4,7 +4,6 @@ import style from './ProgressBar.module.scss'
 //@ts-ignore
 import {CircleProgress} from 'react-gradient-progress'
 
-
 type ProgressBarPropsType = {
     tasks: Array<TaskType>
 }
