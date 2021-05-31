@@ -48,6 +48,7 @@ export const Task = React.memo((props: TaskPropsType) => {
             <div className={style.taskMainInfo}>
                 <div className={style.taskStatusAndTitle}>
                     <Checkbox
+                        className={style.taskCheckbox}
                         checked={props.task.status === TaskStatuses.Completed}
                         color='primary'
                         onChange={onChangeHandler}

@@ -8,7 +8,7 @@
   box-shadow: 0 1px 10px $secondColor;
 
   .todolistContainer {
-    padding: 10px;
+    padding: 15px 15px 10px 15px;
 
     .todolistTitleContainer {
       @include flexBox(row, space-between, center, nowrap);
@@ -32,7 +32,7 @@
     .todolistFilterContainer {
       width: 100%;
       @include flexBox(row, flex-start, center, nowrap);
-      padding: 5px 0 0 0;
+      margin: 10px 0 5px 0;
     }
   }
 }

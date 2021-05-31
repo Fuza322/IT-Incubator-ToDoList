@@ -6,6 +6,11 @@
 
   .taskStatusAndTitle {
     @include flexBox(row, flex-start, center, nowrap);
+
+    .taskCheckbox {
+      @include materialUIButton(6.5px, 6.5px, 1.5rem);
+      margin: 0 10px 0 0;
+    }
   }
 
   .taskButtonsContainer {
