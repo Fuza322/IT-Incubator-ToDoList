@@ -10,6 +10,7 @@ import {Task} from './Task/Task'
 import {Button, ButtonGroup, IconButton} from '@material-ui/core'
 import {Delete} from '@material-ui/icons'
 import style from './Todolist.module.scss'
+import moment from "moment";
 
 
 type TodolistPropsType = {
@@ -68,9 +69,12 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                     <h3 className={style.todolistTitle}>
                         <EditableSpan value={props.todolist.title} onChange={changeTodolistTitle}/>
                     </h3>
-                    <IconButton onClick={removeTodolist} disabled={props.todolist.entityStatus === 'loading'}>
-                        <Delete/>
-                    </IconButton>
+                    <div className={style.todolistDisplay}>
+                        <span>{props.todolist.addedDate ? moment(props.todolist.addedDate).format('L') : null}</span>
+                        <IconButton className={style.todolistDeleteButton} onClick={removeTodolist} disabled={props.todolist.entityStatus === 'loading'}>
+                            <Delete fontSize='inherit'/>
+                        </IconButton>
+                    </div>
                 </div>
                 <AddItemForm addItem={addTask} disabled={props.todolist.entityStatus === 'loading'}/>
                 <div>

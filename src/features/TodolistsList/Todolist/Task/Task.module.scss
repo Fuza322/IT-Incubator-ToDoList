@@ -1,0 +1,18 @@
+@import 'src/common/styles/mixins';
+@import 'src/common/styles/variebles';
+
+.taskMainInfo {
+  @include flexBox(row, space-between, center, nowrap);
+
+  .taskStatusAndTitle {
+    @include flexBox(row, flex-start, center, nowrap);
+  }
+
+  .taskButtonsContainer {
+    @include flexBox(row, flex-start, center, nowrap);
+
+    .taskButton {
+      @include materialUIButton(36px, 36px, 1.5rem);
+    }
+  }
+}

@@ -46,3 +46,9 @@
   transition: .5s;
   @include text($fontFamilyStyle, $fonstSize, 400, $textColor);
 }
+
+@mixin materialUIButton($width, $height, $fonstSize) {
+  width: $width;
+  height: $height;
+  font-size: $fonstSize;
+}

@@ -1,8 +1,10 @@
-import React, {ChangeEvent, useCallback} from 'react'
+import React, {ChangeEvent, useCallback, useState} from 'react'
 import {TaskStatuses, TaskType} from '../../../../api/todolists-api'
 import {EditableSpan} from '../../../../components/EditableSpan/EditableSpan'
+import moment from 'moment'
 import {Delete} from '@material-ui/icons'
 import {Checkbox, IconButton} from '@material-ui/core'
+import SettingsIcon from '@material-ui/icons/Settings';
 import style from './Task.module.scss'
 
 type TaskPropsType = {
@@ -15,6 +17,14 @@ type TaskPropsType = {
 }
 
 export const Task = React.memo((props: TaskPropsType) => {
+
+    const [settingsButtonStatus, setSettingsButtonStatus] = useState<boolean>(false)
+
+    const onClickSettingsButton = () => {
+        const settingsButtonStatusCopy = !settingsButtonStatus
+        setSettingsButtonStatus(settingsButtonStatusCopy)
+        console.log(settingsButtonStatus)
+    }
 
     const onClickHandler = useCallback(() => {
         props.removeTask(props.task.id, props.todolistId)
@@ -35,20 +45,37 @@ export const Task = React.memo((props: TaskPropsType) => {
 
     return (
         <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? 'is-done' : ''}>
-            <Checkbox
-                checked={props.task.status === TaskStatuses.Completed}
-                color='primary'
-                onChange={onChangeHandler}
-            />
-            <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
-            <EditableSpan value={props.task.description} onChange={onDescriptionChangeHandler}/>
-            {/*<input style={{margin: '10px'}} type='date' id='start' name='trip-start'*/}
-            {/*    value='2021-05-22'*/}
-            {/*       min='2021-01-01'*/}
-            {/*/>*/}
-            <IconButton onClick={onClickHandler} disabled={props.task.entityStatus === 'loading'}>
-                <Delete/>
-            </IconButton>
+            <div className={style.taskMainInfo}>
+                <div className={style.taskStatusAndTitle}>
+                    <Checkbox
+                        checked={props.task.status === TaskStatuses.Completed}
+                        color='primary'
+                        onChange={onChangeHandler}
+                    />
+                    <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
+                    {/*<input style={{margin: '10px'}} type='date' id='start' name='trip-start' value='2021-05-22' min='2021-01-01'/>*/}
+                </div>
+                <div className={style.taskButtonsContainer}>
+                    <IconButton className={style.taskButton} onClick={onClickSettingsButton} color="primary">
+                        <SettingsIcon fontSize='inherit'/>
+                    </IconButton>
+                    <IconButton className={style.taskButton} onClick={onClickHandler} disabled={props.task.entityStatus === 'loading'}>
+                        <Delete fontSize='inherit'/>
+                    </IconButton>
+                </div>
+            </div>
+            {
+                settingsButtonStatus
+                    ? <div>
+                        <span>Description: </span>
+                        <EditableSpan
+                            value={props.task.description}
+                            onChange={onDescriptionChangeHandler}
+                        />
+                        <p>Created: {props.task.addedDate ? moment(props.task.addedDate).format('lll') : null}</p>
+                    </div>
+                    : null
+            }
         </div>
     )
 })

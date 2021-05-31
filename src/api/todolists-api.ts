@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {RequestStatusType} from '../app/app-reducer'
+import moment from "moment";
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.1/',
@@ -9,11 +10,10 @@ const instance = axios.create({
     }
 })
 
-
 // api
 export const authAPI = {
     login(data: LoginParamsType) {
-        return instance.post<ResponseType<{userId: number}>>('auth/login', data)
+        return instance.post<ResponseType<{ userId: number }>>('auth/login', data)
     },
     me() {
         return instance.get<ResponseType<AuthMeResponceType>>('auth/me')
@@ -28,7 +28,7 @@ export const todolistsAPI = {
         return instance.get<TodolistType[]>('todo-lists')
     },
     createTodolist(title: string) {
-        return instance.post<ResponseType<{item: TodolistType}>>('todo-lists', {title: title})
+        return instance.post<ResponseType<{ item: TodolistType }>>('todo-lists', {title: title})
     },
     deleteTodolist(id: string) {
         return instance.delete<ResponseType>(`todo-lists/${id}`)
@@ -43,7 +43,9 @@ export const todolistsAPI = {
         return instance.delete<ResponseType>(`todo-lists/${todolistId}/tasks/${taskId}`)
     },
     createTask(todolistId: string, taskTitile: string) {
-        return instance.post<ResponseType<{item: TaskType}>>(`todo-lists/${todolistId}/tasks`, {title: taskTitile})
+        return instance.post<ResponseType<{ item: TaskType }>>(`todo-lists/${todolistId}/tasks`,
+            {title: taskTitile, description: 'Add your description'}
+        )
     },
     updateTask(todolistId: string, taskId: string, model: UpdateTaskModelType) {
         return instance.put<ResponseType<TaskType>>(`todo-lists/${todolistId}/tasks/${taskId}`, model)
@@ -106,6 +108,7 @@ export enum TaskStatuses {
     Completed = 2,
     Draft = 3
 }
+
 export enum TaskPriorities {
     Low = 0,
     Middle = 1,

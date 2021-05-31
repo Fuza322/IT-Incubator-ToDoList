@@ -11,11 +11,21 @@
     padding: 10px;
 
     .todolistTitleContainer {
-      @include flexBox(row, flex-start, center, nowrap);
+      @include flexBox(row, space-between, center, nowrap);
       width: 100%;
 
       .todolistTitle {
         @include text($fontFamilyStyle, 20px, 600, $primaryColor);
+      }
+    }
+
+    .todolistDisplay {
+      @include flexBox(row, stretch, center, nowrap);
+      @include text('Segoe UI', 14px, 500, $backTextColor);
+
+      .todolistDeleteButton {
+        @include materialUIButton(36px, 36px, 1.8rem);
+        margin: 0 0.5px 0 12px;
       }
     }
 
