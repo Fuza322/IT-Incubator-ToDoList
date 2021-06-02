@@ -11,6 +11,10 @@
       @include materialUIButton(6.5px, 6.5px, 1.5rem);
       margin: 0 10px 0 0;
     }
+
+    .taskTitle {
+      @include text($fontFamilyStyle, 16px, 600, $primaryColor);
+    }
   }
 
   .taskButtonsContainer {

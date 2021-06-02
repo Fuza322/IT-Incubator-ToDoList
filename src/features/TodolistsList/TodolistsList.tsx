@@ -16,7 +16,6 @@ import {TaskStatuses} from '../../api/todolists-api'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
 import Particles from 'react-particles-js'
-import {Grid} from '@material-ui/core'
 import style from './TodolistsList.module.scss'
 
 type TodolistsListPropsType = {
@@ -111,11 +110,14 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
     return (
         <div>
             <Particles className={style.particles} params={particlesOptions}/>
-            <Grid data-aos='fade-right' data-aos-duration='600' container className={style.todolistsListInputContainer}>
-                <AddItemForm addItem={addTodolist}/>
-            </Grid>
+            <div data-aos='fade-right' data-aos-duration='600' className={style.todolistsListInputContainer}>
+                <AddItemForm
+                    addItem={addTodolist}
+                    inputStyle={style.todolistsListInput}
+                />
+            </div>
             <div className={style.todolistsListContainer}>
-                <Grid className={style.todolistslits}>
+                <div className={style.todolistslits}>
                     {
                         todolists.map(tl => {
                             let allTodolistTasks = tasks[tl.id]
@@ -137,7 +139,7 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                             )
                         })
                     }
-                </Grid>
+                </div>
             </div>
         </div>
     )

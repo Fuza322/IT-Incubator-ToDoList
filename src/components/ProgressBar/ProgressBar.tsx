@@ -22,16 +22,18 @@ export const ProgressBar = React.memo(function (props: ProgressBarPropsType) {
 
     return (
         isNaN(countPercentValue(props.tasks))
-            ? <></>
+            ? null
             : <div className={style.progressContainer}>
-                <span>Progress (Completed):</span>
-                <CircleProgress
-                    percentage={countPercentValue(props.tasks)}
-                    primaryColor={['#0085eb', '#dfe5ff']}
-                    secondaryColor={'#FFE5FF'}
-                    strokeWidth={5}
-                    width={70}
-                />
+                <span className={style.progressHelpText}>Progress (Completed):</span>
+                <div className={style.circleProgressContainer}>
+                    <CircleProgress
+                        percentage={countPercentValue(props.tasks)}
+                        primaryColor={['#0085eb', '#dfe5ff']}
+                        secondaryColor={'#FFE5FF'}
+                        strokeWidth={5}
+                        width={70}
+                    />
+                </div>
             </div>
     )
 });

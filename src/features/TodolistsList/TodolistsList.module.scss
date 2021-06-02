@@ -1,7 +1,6 @@
 @import 'src/common/styles/mixins';
 @import 'src/common/styles/variebles';
 
-
 .particles {
   position: absolute;
   height: 100%;
@@ -15,10 +14,16 @@
 
 .todolistsListInputContainer {
   margin: 35px 0;
+
+  .todolistsListInput {
+    background-color: #ffffff;
+    width: 340px;
+  }
 }
 
 .todolistsListContainer {
   @include container();
+  @include flexBox(column, stretch, stretch, nowrap);
   width: 100%;
 
   .todolistslits {

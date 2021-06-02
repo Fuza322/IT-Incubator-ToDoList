@@ -5,4 +5,12 @@
   @include flexBox(row, flex-start, center, nowrap);
   @include text($fontFamilyStyle, 16px, 600, $primaryColor);
 
+  .progressHelpText {
+    min-width: 200px;
+  }
+
+  .circleProgressContainer {
+    @include flexBox(row, center, center, nowrap);
+    width: 100%;
+  }
 }

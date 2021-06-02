@@ -5,11 +5,6 @@
   @include flexBox(row, flex-start, center, nowrap);
   margin: 10px 0;
 
-  .imputStyle {
-    width: 235px;
-    background-color: #ffffff;
-  }
-
   .addItemButton {
     @include materialUIButton(36px, 36px, 1.5rem);
   }

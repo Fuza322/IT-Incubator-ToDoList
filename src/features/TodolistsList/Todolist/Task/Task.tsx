@@ -53,14 +53,17 @@ export const Task = React.memo((props: TaskPropsType) => {
                         color='primary'
                         onChange={onChangeHandler}
                     />
-                    <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
+                    <h2 className={style.taskTitle}>
+                        <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
+                    </h2>
                     {/*<input style={{margin: '10px'}} type='date' id='start' name='trip-start' value='2021-05-22' min='2021-01-01'/>*/}
                 </div>
                 <div className={style.taskButtonsContainer}>
                     <IconButton className={style.taskButton} onClick={onClickSettingsButton} color="primary">
                         <SettingsIcon fontSize='inherit'/>
                     </IconButton>
-                    <IconButton className={style.taskButton} onClick={onClickHandler} disabled={props.task.entityStatus === 'loading'}>
+                    <IconButton className={style.taskButton} onClick={onClickHandler}
+                                disabled={props.task.entityStatus === 'loading'}>
                         <Delete fontSize='inherit'/>
                     </IconButton>
                 </div>

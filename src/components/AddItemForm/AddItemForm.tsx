@@ -6,9 +6,10 @@ import style from './AddItemForm.module.scss'
 type AddItemFormPropsType = {
     addItem: (title: string) => void
     disabled?: boolean
+    inputStyle?: any
 }
 
-export const AddItemForm = React.memo(function ({addItem, disabled = false}: AddItemFormPropsType) {
+export const AddItemForm = React.memo(function ({addItem, disabled = false, inputStyle}: AddItemFormPropsType) {
 
     let [title, setTitle] = useState<string>('')
     let [error, setError] = useState<string | null>(null)
@@ -46,7 +47,7 @@ export const AddItemForm = React.memo(function ({addItem, disabled = false}: Add
                 onKeyPress={onKeyPressHandler}
                 label='Title'
                 helperText={error}
-                className={style.imputStyle}
+                className={inputStyle}
             />
             <IconButton className={style.addItemButton} color='primary' onClick={addItemHandler} disabled={disabled}>
                 <AddBox/>

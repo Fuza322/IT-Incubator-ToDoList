@@ -15,8 +15,13 @@
       width: 100%;
 
       .todolistTitle {
-        @include text($fontFamilyStyle, 20px, 600, $primaryColor);
+        @include text($fontFamilyStyle, 20px, 700, $primaryColor);
       }
+    }
+
+    .todolistInput {
+      background-color: #ffffff;
+      width: 100%;
     }
 
     .todolistDisplay {
@@ -33,6 +38,15 @@
       width: 100%;
       @include flexBox(row, flex-start, center, nowrap);
       margin: 10px 0 5px 0;
+
+      .buttonGroupContainer {
+        width: 100%;
+
+        .buttonFilter {
+          width: 100%;
+        }
+      }
+
     }
   }
 }

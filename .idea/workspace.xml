@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="80ac300a-6491-4f62-8b40-c7d3c1b3e844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProgressBar/ProgressBar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProgressBar/ProgressBar.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProgressBar/ProgressBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProgressBar/ProgressBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Todolist.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Todolist.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +89,8 @@
       <workItem from="1622406441367" duration="5626000" />
       <workItem from="1622454577140" duration="2303000" />
       <workItem from="1622457166943" duration="12955000" />
-      <workItem from="1622470843826" duration="722000" />
+      <workItem from="1622470843826" duration="925000" />
+      <workItem from="1622660482231" duration="4704000" />
     </task>
     <servers />
   </component>
@@ -98,10 +106,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="500" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1621854384153" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1622465220015">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1622660907204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622465220015" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622660907204" />
     <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1622456897406">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -122,6 +130,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622061893593" />
+    <state x="0" y="0" width="1225" height="609" key="dock-window-1" timestamp="1622660704669">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="0" width="1225" height="609" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1622660704669" />
     <state x="478" y="145" width="579" height="534" key="find.popup" timestamp="1621881679752">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
