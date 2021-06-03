@@ -53,9 +53,12 @@ export const Task = React.memo((props: TaskPropsType) => {
                         color='primary'
                         onChange={onChangeHandler}
                     />
-                    <h2 className={style.taskTitle}>
-                        <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
-                    </h2>
+                    <EditableSpan
+                        value={props.task.title}
+                        onChange={onTitleChangeHandler}
+                        editableSpanInputStyle={style.taskTitleEditableSpanInput}
+                        editableSpanTextStyle={style.taskTitle}
+                    />
                 </div>
                 <div className={style.taskButtonsContainer}>
                     <IconButton className={style.taskButton} onClick={onClickSettingsButton} color="primary">
@@ -72,12 +75,12 @@ export const Task = React.memo((props: TaskPropsType) => {
                     ? <div className={style.taskSettingsContainer}>
                         <div className={style.taskDescriptionContainer}>
                             <p className={style.taskDescriptionHelpText}>Description:</p>
-                            <span className={style.taskDescriptionText}>
-                                <EditableSpan
-                                    value={props.task.description}
-                                    onChange={onDescriptionChangeHandler}
-                                />
-                            </span>
+                            <EditableSpan
+                                value={props.task.description}
+                                onChange={onDescriptionChangeHandler}
+                                editableSpanInputStyle={style.taskDescriptionEditableSpanInput}
+                                editableSpanTextStyle={style.taskDescriptionText}
+                            />
                         </div>
                         <div className={style.taskCreatedContainer}>
                             <p className={style.taskCreatedHelpText}>Created:</p>

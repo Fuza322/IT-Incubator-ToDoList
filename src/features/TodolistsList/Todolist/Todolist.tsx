@@ -7,11 +7,10 @@ import {AddItemForm} from '../../../components/AddItemForm/AddItemForm'
 import {EditableSpan} from '../../../components/EditableSpan/EditableSpan'
 import {ProgressBar} from '../../../components/ProgressBar/ProgressBar'
 import {Task} from './Task/Task'
+import moment from 'moment'
 import {Button, ButtonGroup, IconButton} from '@material-ui/core'
 import {Delete} from '@material-ui/icons'
 import style from './Todolist.module.scss'
-import moment from "moment";
-
 
 type TodolistPropsType = {
     todolist: TodolistDomainType
@@ -66,9 +65,12 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
         <div className={style.todolistBlock}>
             <div className={style.todolistContainer}>
                 <div className={style.todolistTitleContainer}>
-                    <h3 className={style.todolistTitle}>
-                        <EditableSpan value={props.todolist.title} onChange={changeTodolistTitle}/>
-                    </h3>
+                    <EditableSpan
+                        value={props.todolist.title}
+                        onChange={changeTodolistTitle}
+                        editableSpanInputStyle={style.todolistTitleEditableSpanInput}
+                        editableSpanTextStyle={style.todolistTitle}
+                    />
                     <div className={style.todolistDisplay}>
                         <span>{props.todolist.addedDate ? moment(props.todolist.addedDate).format('L') : null}</span>
                         <IconButton className={style.todolistDeleteButton} onClick={removeTodolist}
@@ -79,7 +81,7 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                 </div>
                 <AddItemForm addItem={addTask}
                              disabled={props.todolist.entityStatus === 'loading'}
-                             inputStyle={style.todolistInput}
+                             addItemInputStyle={style.todolistInput}
                 />
                 <div>
                     {tasksForTodolist.map(t =>

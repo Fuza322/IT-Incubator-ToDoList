@@ -3,16 +3,23 @@
 
 .taskMainInfo {
   @include flexBox(row, space-between, center, nowrap);
+  width: 100%;
 
   .taskStatusAndTitle {
     @include flexBox(row, flex-start, center, nowrap);
+    width: 100%;
 
     .taskCheckbox {
       @include materialUIButton(6.5px, 6.5px, 1.5rem);
       margin: 0 6px 0 0;
     }
 
+    .taskTitleEditableSpanInput {
+      width: 100%;
+    }
+
     .taskTitle {
+      width: 100%;
       @include text($fontFamilyStyle, 16px, 600, $primaryColor);
     }
   }
@@ -38,6 +45,10 @@
 
     .taskDescriptionHelpText {
       @include text($fontFamilyStyle, 14px, 700, $backTextColor);
+    }
+
+    .taskDescriptionEditableSpanInput {
+      width: 90%;
     }
 
     .taskDescriptionText {

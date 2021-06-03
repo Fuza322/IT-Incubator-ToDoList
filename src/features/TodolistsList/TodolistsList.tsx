@@ -113,7 +113,7 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
             <div data-aos='fade-right' data-aos-duration='600' className={style.todolistsListInputContainer}>
                 <AddItemForm
                     addItem={addTodolist}
-                    inputStyle={style.todolistsListInput}
+                    addItemInputStyle={style.todolistsListInput}
                 />
             </div>
             <div className={style.todolistsListContainer}>

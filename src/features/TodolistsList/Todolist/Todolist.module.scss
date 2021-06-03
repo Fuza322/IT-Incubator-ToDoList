@@ -14,7 +14,12 @@
       @include flexBox(row, space-between, center, nowrap);
       width: 100%;
 
+      .todolistTitleEditableSpanInput {
+        width: 100%;
+      }
+
       .todolistTitle {
+        width: 100%;
         @include text($fontFamilyStyle, 20px, 700, $primaryColor);
       }
     }
@@ -27,6 +32,7 @@
     .todolistDisplay {
       @include flexBox(row, stretch, center, nowrap);
       @include text('Segoe UI', 14px, 500, $backTextColor);
+      margin: 0 0 0 12px;
 
       .todolistDeleteButton {
         @include materialUIButton(36px, 36px, 1.8rem);

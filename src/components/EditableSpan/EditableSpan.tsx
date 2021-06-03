@@ -5,6 +5,8 @@ import style from './EditableSpan.module.scss'
 type EditableSpanPropsType = {
     value: string
     onChange: (newValue: string) => void
+    editableSpanInputStyle?: any
+    editableSpanTextStyle?: any
 }
 
 export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
@@ -25,6 +27,11 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
     }
 
     return editMode
-        ? <TextField value={title} onChange={changeTitle} autoFocus onBlur={activateViewMode}/>
-        : <span onDoubleClick={activateEditMode}>{props.value}</span>
+        ? <TextField
+            className={props.editableSpanInputStyle}
+            value={title} onChange={changeTitle}
+            autoFocus onBlur={activateViewMode}
+            color='primary'
+        />
+        : <span className={props.editableSpanTextStyle} onDoubleClick={activateEditMode}>{props.value}</span>
 })
