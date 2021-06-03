@@ -2,8 +2,8 @@
 @import 'src/common/styles/variebles';
 
 .todolistBlock {
+  height: max-content;
   background-color: $textColor;
-  width: 100%;
   border-radius: 20px;
   box-shadow: 0 1px 10px $secondColor;
 
@@ -21,6 +21,9 @@
       .todolistTitle {
         width: 100%;
         @include text($fontFamilyStyle, 20px, 700, $primaryColor);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
 
@@ -30,7 +33,7 @@
     }
 
     .todolistDisplay {
-      @include flexBox(row, stretch, center, nowrap);
+      @include flexBox(row, start, center, nowrap);
       @include text('Segoe UI', 14px, 500, $backTextColor);
       margin: 0 0 0 12px;
 

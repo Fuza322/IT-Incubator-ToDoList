@@ -3,5 +3,5 @@
 
 .mainBlock {
   min-height: 88.5vh;
-  @include flexBox(row, stretch, stretch, nowrap);
+  @include flexBox(row, center, stretch, nowrap);
 }

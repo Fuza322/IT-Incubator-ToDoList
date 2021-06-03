@@ -73,7 +73,7 @@ export const Login = React.memo(function () {
                         </div>
                     </div>
                 </div>
-                {/*------------------------------*/}
+
                 <Grid data-aos='zoom-in' data-aos-duration='600' className={style.authContainer} container>
                     <form className={style.authForm} onSubmit={formik.handleSubmit}>
                         <FormControl className={style.authFormControl}>

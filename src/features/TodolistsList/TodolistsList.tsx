@@ -107,8 +107,9 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
             }
         }
     }
+
     return (
-        <div>
+        <div className={style.todolistsListBlock}>
             <Particles className={style.particles} params={particlesOptions}/>
             <div data-aos='fade-right' data-aos-duration='600' className={style.todolistsListInputContainer}>
                 <AddItemForm
@@ -116,30 +117,28 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                     addItemInputStyle={style.todolistsListInput}
                 />
             </div>
-            <div className={style.todolistsListContainer}>
-                <div className={style.todolistslits}>
-                    {
-                        todolists.map(tl => {
-                            let allTodolistTasks = tasks[tl.id]
-                            return (
-                                <Todolist
-                                    key={tl.id}
-                                    todolist={tl}
-                                    tasks={allTodolistTasks}
-                                    changeTaskStatus={changeStatus}
-                                    changeTaskTitle={changeTaskTitle}
-                                    changeTaskDescription={changeTaskDescription}
-                                    removeTask={removeTask}
-                                    changeFilter={changeFilter}
-                                    addTask={addTask}
-                                    removeTodolist={removeTodolist}
-                                    changeTodolistTitle={changeTodolistTitle}
-                                    demo={demo}
-                                />
-                            )
-                        })
-                    }
-                </div>
+            <div className={style.todolistslits}>
+                {
+                    todolists.map(tl => {
+                        let allTodolistTasks = tasks[tl.id]
+                        return (
+                            <Todolist
+                                key={tl.id}
+                                todolist={tl}
+                                tasks={allTodolistTasks}
+                                changeTaskStatus={changeStatus}
+                                changeTaskTitle={changeTaskTitle}
+                                changeTaskDescription={changeTaskDescription}
+                                removeTask={removeTask}
+                                changeFilter={changeFilter}
+                                addTask={addTask}
+                                removeTodolist={removeTodolist}
+                                changeTodolistTitle={changeTodolistTitle}
+                                demo={demo}
+                            />
+                        )
+                    })
+                }
             </div>
         </div>
     )

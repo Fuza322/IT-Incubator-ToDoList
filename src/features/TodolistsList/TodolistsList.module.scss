@@ -1,35 +1,32 @@
 @import 'src/common/styles/mixins';
 @import 'src/common/styles/variebles';
 
-.particles {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0.5;
-  z-index: -999;
-}
+.todolistsListBlock {
+  padding: 20px 0 30px 0;
 
-.todolistsListInputContainer {
-  margin: 35px 0;
-
-  .todolistsListInput {
-    background-color: #ffffff;
-    width: 340px;
+  .particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -999;
   }
-}
 
-.todolistsListContainer {
-  @include container();
-  @include flexBox(column, stretch, stretch, nowrap);
-  width: 100%;
+  .todolistsListInputContainer {
+    margin: 0 0 30px 0;
+
+    .todolistsListInput {
+      background-color: #ffffff;
+      width: 340px;
+    }
+  }
 
   .todolistslits {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 35px;
-    padding: 0 0 35px 0;
+    grid-template-columns: repeat(4, minmax(300px, 20vw));
+    grid-gap: 30px;
+    justify-content: center;
   }
 }

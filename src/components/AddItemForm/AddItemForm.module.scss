@@ -2,11 +2,12 @@
 @import 'src/common/styles/variebles';
 
 .addItemContainer {
-  @include flexBox(row, flex-start, center, nowrap);
+  @include flexBox(row, flex-start, stretch, nowrap);
   margin: 10px 0;
 
   .addItemButton {
     @include materialUIButton(36px, 36px, 1.5rem);
+    margin-top: 10px;
   }
 }
 
