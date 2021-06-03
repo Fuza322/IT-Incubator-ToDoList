@@ -9,7 +9,7 @@
 
     .taskCheckbox {
       @include materialUIButton(6.5px, 6.5px, 1.5rem);
-      margin: 0 10px 0 0;
+      margin: 0 6px 0 0;
     }
 
     .taskTitle {
@@ -22,6 +22,37 @@
 
     .taskButton {
       @include materialUIButton(36px, 36px, 1.5rem);
+    }
+  }
+}
+
+.taskSettingsContainer {
+  @include flexBox(column, stretch, stretch, nowrap);
+  border-radius: 20px;
+  box-shadow: inset 1px 1px 1px $secondColor, 1px 1px 2px $secondColor;
+  padding: 3px 0 3px 25px;
+  margin: 2px 5px;
+
+  .taskDescriptionContainer {
+    @include flexBox(column, stretch, stretch, nowrap);
+
+    .taskDescriptionHelpText {
+      @include text($fontFamilyStyle, 14px, 700, $backTextColor);
+    }
+
+    .taskDescriptionText {
+      @include text($fontFamilyStyle, 14px, 500, $greyTextColor);
+    }
+  }
+
+  .taskCreatedContainer {
+
+    .taskCreatedHelpText {
+      @include text($fontFamilyStyle, 14px, 700, $backTextColor);
+    }
+
+    .taskCreatedText {
+      @include text($fontFamilyStyle, 14px, 500, $greyTextColor);
     }
   }
 }

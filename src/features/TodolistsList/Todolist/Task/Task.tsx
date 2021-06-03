@@ -56,7 +56,6 @@ export const Task = React.memo((props: TaskPropsType) => {
                     <h2 className={style.taskTitle}>
                         <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
                     </h2>
-                    {/*<input style={{margin: '10px'}} type='date' id='start' name='trip-start' value='2021-05-22' min='2021-01-01'/>*/}
                 </div>
                 <div className={style.taskButtonsContainer}>
                     <IconButton className={style.taskButton} onClick={onClickSettingsButton} color="primary">
@@ -70,13 +69,21 @@ export const Task = React.memo((props: TaskPropsType) => {
             </div>
             {
                 settingsButtonStatus
-                    ? <div>
-                        <span>Description: </span>
-                        <EditableSpan
-                            value={props.task.description}
-                            onChange={onDescriptionChangeHandler}
-                        />
-                        <p>Created: {props.task.addedDate ? moment(props.task.addedDate).format('lll') : null}</p>
+                    ? <div className={style.taskSettingsContainer}>
+                        <div className={style.taskDescriptionContainer}>
+                            <p className={style.taskDescriptionHelpText}>Description:</p>
+                            <span className={style.taskDescriptionText}>
+                                <EditableSpan
+                                    value={props.task.description}
+                                    onChange={onDescriptionChangeHandler}
+                                />
+                            </span>
+                        </div>
+                        <div className={style.taskCreatedContainer}>
+                            <p className={style.taskCreatedHelpText}>Created:</p>
+                            <p className={style.taskCreatedText}>{props.task.addedDate ? moment(props.task.addedDate).format('lll') : null}</p>
+                        </div>
+                        {/*<input style={{margin: '10px'}} type='date' id='start' name='trip-start' value='2021-05-22' min='2021-01-01'/>*/}
                     </div>
                     : null
             }
