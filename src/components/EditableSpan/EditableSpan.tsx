@@ -1,6 +1,8 @@
 import React, {ChangeEvent, useState} from 'react';
 import {TextField} from '@material-ui/core'
 import style from './EditableSpan.module.scss'
+import {setAppErrorAC} from "../../app/app-reducer";
+import {useDispatch} from "react-redux";
 
 type EditableSpanPropsType = {
     value: string
@@ -13,14 +15,20 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
 
     let [editMode, setEditMode] = useState(false)
     let [title, setTitle] = useState(props.value)
+    
+    const dispatch = useDispatch()
 
     const activateEditMode = () => {
         setEditMode(true)
         setTitle(props.value)
     }
     const activateViewMode = () => {
-        setEditMode(false)
-        props.onChange(title)
+        if (title !== '') {
+            setEditMode(false)
+            props.onChange(title)
+        } else {
+            dispatch(setAppErrorAC('Title is emply!'))
+        }
     }
     const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
