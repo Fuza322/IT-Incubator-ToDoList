@@ -16,6 +16,7 @@ import {TaskStatuses} from '../../api/todolists-api'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
 import Particles from 'react-particles-js'
+import Masonry from 'react-masonry-css'
 import style from './TodolistsList.module.scss'
 
 type TodolistsListPropsType = {
@@ -108,6 +109,13 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         }
     }
 
+    const breakpointColumnsObj = {
+        default: 4,
+        1450: 3,
+        1100: 2,
+        800: 1
+    };
+
     return (
         <div className={style.todolistsListBlock}>
             <Particles className={style.particles} params={particlesOptions}/>
@@ -117,7 +125,10 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                     addItemInputStyle={style.todolistsListInput}
                 />
             </div>
-            <div className={style.todolistslits}>
+            <Masonry
+                breakpointCols={breakpointColumnsObj}
+                className={style.todolistslits}
+                columnClassName={style.todolistColumnItem}>
                 {
                     todolists.map(tl => {
                         let allTodolistTasks = tasks[tl.id]
@@ -139,7 +150,7 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                         )
                     })
                 }
-            </div>
+            </Masonry>
         </div>
     )
 }
