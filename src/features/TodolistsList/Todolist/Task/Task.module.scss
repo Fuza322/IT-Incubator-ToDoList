@@ -42,36 +42,20 @@
   padding: 3px 0 3px 25px;
   margin: 2px 5px;
 
-  .taskDescriptionContainer {
-    @include flexBox(column, start, stretch, nowrap);
+  .settingsItemContainer {
+    margin: 1px 0;
 
-    .taskDescriptionHelpText {
+    .taskItemHelpText {
       @include text($fontFamilyStyle, 14px, 700, $backTextColor);
+      margin: 0 6px 0 0;
+    }
+
+    .itemText {
+      @include text($fontFamilyStyle, 14px, 500, $greyTextColor);
     }
 
     .taskDescriptionEditableSpanInput {
       width: 90%;
-    }
-
-    .taskDescriptionText {
-      @include text($fontFamilyStyle, 14px, 500, $greyTextColor);
-    }
-  }
-
-  .taskCreatedContainer {
-
-    .taskCreatedHelpText {
-      @include text($fontFamilyStyle, 14px, 700, $backTextColor);
-    }
-
-    .taskCreatedText {
-      @include text($fontFamilyStyle, 14px, 500, $greyTextColor);
-    }
-  }
-
-  .taskDeadlineContainer {
-    .taskDeadlineHelpText {
-      @include text($fontFamilyStyle, 14px, 700, $backTextColor);
     }
   }
 }

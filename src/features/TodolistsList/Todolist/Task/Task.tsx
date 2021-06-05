@@ -47,7 +47,7 @@ export const Task = React.memo((props: TaskPropsType) => {
         props.changeTaskDeadline(props.task.id, newValue, props.todolistId)
     }, [props.task.id, props.todolistId])
 
-    // console.log(props.task)
+    console.log(props.task)
 
     return (
         <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? 'is-done' : ''}>
@@ -79,25 +79,28 @@ export const Task = React.memo((props: TaskPropsType) => {
             {
                 settingsButtonStatus
                     ? <div className={style.taskSettingsContainer}>
-                        <div className={style.taskDescriptionContainer}>
-                            <p className={style.taskDescriptionHelpText}>Description:</p>
+                        <div className={style.settingsItemContainer}>
+                            <p className={style.taskItemHelpText}>Description:</p>
                             <EditableSpan
                                 value={props.task.description}
                                 onChange={onDescriptionChangeHandler}
                                 editableSpanInputStyle={style.taskDescriptionEditableSpanInput}
-                                editableSpanTextStyle={style.taskDescriptionText}
+                                editableSpanTextStyle={style.itemText}
                             />
                         </div>
-                        <div className={style.taskCreatedContainer}>
-                            <p className={style.taskCreatedHelpText}>Created:</p>
-                            <p className={style.taskCreatedText}>{props.task.addedDate ? moment(props.task.addedDate).format('L') : null}</p>
+                        <div className={style.settingsItemContainer}>
+                            <span className={style.taskItemHelpText}>Created:</span>
+                            <span className={style.itemText}>{props.task.addedDate ? moment(props.task.addedDate).format('L') : null}</span>
                         </div>
-                        <div className={style.taskDeadlineContainer}>
-                            <p className={style.taskDeadlineHelpText}>Deadline:</p>
+                        <div className={style.settingsItemContainer}>
+                            <span className={style.taskItemHelpText}>Deadline:</span>
                             <DataInputType
                                 value={props.task.deadline.substr(0, 10)}
                                 onChange={onDeadlineChangeHandler}
                             />
+                        </div>
+                        <div className={style.settingsItemContainer}>
+                            <span className={style.taskItemHelpText}>Priority:</span>
                         </div>
                     </div>
                     : null

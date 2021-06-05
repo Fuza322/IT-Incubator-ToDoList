@@ -44,7 +44,12 @@ export const todolistsAPI = {
     },
     createTask(todolistId: string, taskTitile: string) {
         return instance.post<ResponseType<{ item: TaskType }>>(`todo-lists/${todolistId}/tasks`,
-            {title: taskTitile, description: 'Empty', deadline: moment().format('L')}
+            {
+                title: taskTitile,
+                description: 'Empty',
+                deadline: moment().format('L'),
+                priority: 0
+            }
         )
     },
     updateTask(todolistId: string, taskId: string, model: UpdateTaskModelType) {

@@ -1,8 +1,8 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react'
 import {TextField} from '@material-ui/core'
 import style from './EditableSpan.module.scss'
-import {setAppErrorAC} from "../../app/app-reducer";
-import {useDispatch} from "react-redux";
+import {setAppErrorAC} from '../../app/app-reducer'
+import {useDispatch} from 'react-redux'
 
 type EditableSpanPropsType = {
     value: string
