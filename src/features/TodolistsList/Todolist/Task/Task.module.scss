@@ -68,4 +68,10 @@
       @include text($fontFamilyStyle, 14px, 500, $greyTextColor);
     }
   }
+
+  .taskDeadlineContainer {
+    .taskDeadlineHelpText {
+      @include text($fontFamilyStyle, 14px, 700, $backTextColor);
+    }
+  }
 }

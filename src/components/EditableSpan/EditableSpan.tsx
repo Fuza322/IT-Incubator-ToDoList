@@ -7,8 +7,8 @@ import {useDispatch} from "react-redux";
 type EditableSpanPropsType = {
     value: string
     onChange: (newValue: string) => void
-    editableSpanInputStyle?: any
-    editableSpanTextStyle?: any
+    editableSpanInputStyle?: string
+    editableSpanTextStyle?: string
 }
 
 export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {

@@ -6,7 +6,7 @@ import style from './AddItemForm.module.scss'
 type AddItemFormPropsType = {
     addItem: (title: string) => void
     disabled?: boolean
-    addItemInputStyle?: any
+    addItemInputStyle?: string
 }
 
 export const AddItemForm = React.memo(function ({addItem, disabled = false, addItemInputStyle}: AddItemFormPropsType) {
