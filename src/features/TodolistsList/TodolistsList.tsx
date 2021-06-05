@@ -111,9 +111,9 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
 
     const breakpointColumnsObj = {
         default: 4,
-        1450: 3,
-        1100: 2,
-        800: 1
+        1300: 3,
+        1000: 2,
+        650: 1
     };
 
     return (
@@ -125,32 +125,34 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                     addItemInputStyle={style.todolistsListInput}
                 />
             </div>
-            <Masonry
-                breakpointCols={breakpointColumnsObj}
-                className={style.todolistslits}
-                columnClassName={style.todolistColumnItem}>
-                {
-                    todolists.map(tl => {
-                        let allTodolistTasks = tasks[tl.id]
-                        return (
-                            <Todolist
-                                key={tl.id}
-                                todolist={tl}
-                                tasks={allTodolistTasks}
-                                changeTaskStatus={changeStatus}
-                                changeTaskTitle={changeTaskTitle}
-                                changeTaskDescription={changeTaskDescription}
-                                removeTask={removeTask}
-                                changeFilter={changeFilter}
-                                addTask={addTask}
-                                removeTodolist={removeTodolist}
-                                changeTodolistTitle={changeTodolistTitle}
-                                demo={demo}
-                            />
-                        )
-                    })
-                }
-            </Masonry>
+            <div>
+                <Masonry
+                    breakpointCols={breakpointColumnsObj}
+                    className={style.todolistslits}
+                    columnClassName={style.todolistColumnItem}>
+                    {
+                        todolists.map(tl => {
+                            let allTodolistTasks = tasks[tl.id]
+                            return (
+                                <Todolist
+                                    key={tl.id}
+                                    todolist={tl}
+                                    tasks={allTodolistTasks}
+                                    changeTaskStatus={changeStatus}
+                                    changeTaskTitle={changeTaskTitle}
+                                    changeTaskDescription={changeTaskDescription}
+                                    removeTask={removeTask}
+                                    changeFilter={changeFilter}
+                                    addTask={addTask}
+                                    removeTodolist={removeTodolist}
+                                    changeTodolistTitle={changeTodolistTitle}
+                                    demo={demo}
+                                />
+                            )
+                        })
+                    }
+                </Masonry>
+            </div>
         </div>
     )
 }
