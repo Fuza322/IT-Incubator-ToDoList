@@ -27,7 +27,9 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
             setEditMode(false)
             props.onChange(title)
         } else {
-            dispatch(setAppErrorAC('Title is emply!'))
+            dispatch(setAppErrorAC('Сhanges not saved. Title is emply.'))
+            setEditMode(false)
+            props.onChange(props.value)
         }
     }
     const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
