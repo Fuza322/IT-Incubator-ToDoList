@@ -3,8 +3,9 @@
 
 .taskDeadlineInput {
   @include text($fontFamilyStyle, 14px, 550, $primaryColor);
+  width: 140px;
   padding: 0 4px;
   border-width: 0.6px;
-  border-color: $greyTextColor;
+  border-color: $secondColor;
   border-radius: 8px;
 }

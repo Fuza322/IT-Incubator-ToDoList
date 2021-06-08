@@ -46,7 +46,7 @@ export const todolistsAPI = {
         return instance.post<ResponseType<{ item: TaskType }>>(`todo-lists/${todolistId}/tasks`,
             {
                 title: taskTitile,
-                description: 'Empty',
+                description: 'Empty description',
                 deadline: moment().format('L'),
                 priority: 0
             }

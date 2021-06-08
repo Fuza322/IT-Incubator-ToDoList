@@ -21,6 +21,7 @@ type TodolistPropsType = {
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
     changeTaskDescription: (taskId: string, newDescription: string, todolistId: string) => void
     changeTaskDeadline: (taskId: string, newDeadline: string, todolistId: string) => void
+    changeTaskPriority: (taskId: string, newPriority: number, todolistId: string) => void
     removeTask: (taskId: string, todolistId: string) => void
     removeTodolist: (id: string) => void
     changeTodolistTitle: (id: string, newTitle: string) => void
@@ -93,6 +94,7 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                               changeTaskTitle={props.changeTaskTitle}
                               changeTaskDescription={props.changeTaskDescription}
                               changeTaskDeadline={props.changeTaskDeadline}
+                              changeTaskPriority={props.changeTaskPriority}
                               removeTask={props.removeTask}
                         />)
                     }

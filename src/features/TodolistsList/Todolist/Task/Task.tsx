@@ -15,12 +15,25 @@ type TaskPropsType = {
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
     changeTaskDescription: (taskId: string, newDescription: string, todolistId: string) => void
     changeTaskDeadline: (taskId: string, newDeadline: string, todolistId: string) => void
+    changeTaskPriority: (taskId: string, newPriority: number, todolistId: string) => void
     removeTask: (taskId: string, todolistId: string) => void
 }
 
 export const Task = React.memo((props: TaskPropsType) => {
 
     const [settingsButtonStatus, setSettingsButtonStatus] = useState<boolean>(false)
+    const [showPriority, setShowPriority] = useState<boolean>(true)
+    const taskPriority = () => {
+        switch (props.task.priority) {
+            case 0: return 'Low'
+            case 1: return 'Middle'
+            case 2: return 'Hight'
+            case 3: return 'Urgently'
+            case 4: return 'Later'
+        }
+
+    }
+    const createdDate = (date: string) => date.substr(3, 2) + '.' + date.substr(0, 2) + '.' + date.substr(6, 4)
 
     const onClickSettingsButton = () => {
         setSettingsButtonStatus(!settingsButtonStatus)
@@ -47,7 +60,22 @@ export const Task = React.memo((props: TaskPropsType) => {
         props.changeTaskDeadline(props.task.id, newValue, props.todolistId)
     }, [props.task.id, props.todolistId])
 
+    //const onPriorityChangeHandler = useCallback((newValue: number) => {
+    //    props.changeTaskPriority(props.task.id, newValue, props.todolistId)
+    //}, [props.task.id, props.todolistId])
+
+    const activateEditMode = () => {
+        setShowPriority(false)
+    }
+
+    const changeSelectedItemHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        props.changeTaskPriority(props.task.id, +e.target.value, props.todolistId)
+        setShowPriority(true)
+    }
+
     console.log(props.task)
+
+    createdDate(moment(props.task.addedDate).format('L'))
 
     return (
         <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? 'is-done' : ''}>
@@ -89,10 +117,6 @@ export const Task = React.memo((props: TaskPropsType) => {
                             />
                         </div>
                         <div className={style.settingsItemContainer}>
-                            <span className={style.taskItemHelpText}>Created:</span>
-                            <span className={style.itemText}>{props.task.addedDate ? moment(props.task.addedDate).format('L') : null}</span>
-                        </div>
-                        <div className={style.settingsItemContainer}>
                             <span className={style.taskItemHelpText}>Deadline:</span>
                             <DataInputType
                                 value={props.task.deadline.substr(0, 10)}
@@ -101,6 +125,23 @@ export const Task = React.memo((props: TaskPropsType) => {
                         </div>
                         <div className={style.settingsItemContainer}>
                             <span className={style.taskItemHelpText}>Priority:</span>
+                            {
+                                showPriority
+                                    ? <span onDoubleClick={activateEditMode}
+                                            className={style.itemText}
+                                            style={{margin: '0 0 0 12px'}}>{taskPriority()}</span>
+                                    : <select className={style.taskSelect} onChange={changeSelectedItemHandler} name='priority'>
+                                        <option value={0} selected>Low</option>
+                                        <option value={1}>Middle</option>w
+                                        <option value={2}>Hight</option>
+                                        <option value={3}>Urgently</option>
+                                        <option value={4}>Later</option>
+                                    </select>
+                            }
+                        </div>
+                        <div className={style.settingsItemContainer}>
+                            <span className={style.taskItemHelpText} style={{margin: '0 12px 0 0'}}>Created:</span>
+                            <span className={style.itemText}>{props.task.addedDate ? createdDate(moment(props.task.addedDate).format('L')) : null}</span>
                         </div>
                     </div>
                     : null

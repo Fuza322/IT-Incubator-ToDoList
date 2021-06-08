@@ -62,6 +62,10 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         dispatch(updateTaskTC(id, {deadline: newDeadline}, todolistId))
     }, [dispatch])
 
+    const changeTaskPriority = useCallback(function (id: string, newPriority: number, todolistId: string) {
+        dispatch(updateTaskTC(id, {priority: newPriority}, todolistId))
+    }, [dispatch])
+
     const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
         dispatch(changeTodolistFilterAC(todolistId, value))
     }, [dispatch])
@@ -146,6 +150,7 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                                     changeTaskTitle={changeTaskTitle}
                                     changeTaskDescription={changeTaskDescription}
                                     changeTaskDeadline={changeTaskDeadline}
+                                    changeTaskPriority={changeTaskPriority}
                                     removeTask={removeTask}
                                     changeFilter={changeFilter}
                                     addTask={addTask}
