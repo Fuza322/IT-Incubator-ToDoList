@@ -1,8 +1,7 @@
 import React, {ChangeEvent, useCallback, useState} from 'react'
 import {TaskStatuses, TaskType} from '../../../../api/todolists-api'
+import {TaskSettings} from './TaskSettings/TaskSettings'
 import {EditableSpan} from '../../../../components/EditableSpan/EditableSpan'
-import {DataInputType} from '../../../../components/DataInput/DataInput'
-import moment from 'moment'
 import {Delete} from '@material-ui/icons'
 import {Checkbox, IconButton} from '@material-ui/core'
 import SettingsIcon from '@material-ui/icons/Settings'
@@ -22,60 +21,23 @@ type TaskPropsType = {
 export const Task = React.memo((props: TaskPropsType) => {
 
     const [settingsButtonStatus, setSettingsButtonStatus] = useState<boolean>(false)
-    const [showPriority, setShowPriority] = useState<boolean>(true)
-    const taskPriority = () => {
-        switch (props.task.priority) {
-            case 0: return 'Low'
-            case 1: return 'Middle'
-            case 2: return 'Hight'
-            case 3: return 'Urgently'
-            case 4: return 'Later'
-        }
-
-    }
-    const createdDate = (date: string) => date.substr(3, 2) + '.' + date.substr(0, 2) + '.' + date.substr(6, 4)
 
     const onClickSettingsButton = () => {
         setSettingsButtonStatus(!settingsButtonStatus)
     }
 
-    const onClickHandler = useCallback(() => {
+    const onRemoveTaskClickHandler = useCallback(() => {
         props.removeTask(props.task.id, props.todolistId)
     }, [props.task.id, props.todolistId])
 
-    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const onTaskStausChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         let newIsDoneValue = e.currentTarget.checked
         props.changeTaskStatus(props.task.id, newIsDoneValue ? TaskStatuses.Completed : TaskStatuses.New, props.todolistId)
     }, [props.task.id, props.todolistId])
 
-    const onTitleChangeHandler = useCallback((newValue: string) => {
+    const onTaskTitleChangeHandler = useCallback((newValue: string) => {
         props.changeTaskTitle(props.task.id, newValue, props.todolistId)
     }, [props.task.id, props.todolistId])
-
-    const onDescriptionChangeHandler = useCallback((newValue: string) => {
-        props.changeTaskDescription(props.task.id, newValue, props.todolistId)
-    }, [props.task.id, props.todolistId])
-
-    const onDeadlineChangeHandler = useCallback((newValue: string) => {
-        props.changeTaskDeadline(props.task.id, newValue, props.todolistId)
-    }, [props.task.id, props.todolistId])
-
-    //const onPriorityChangeHandler = useCallback((newValue: number) => {
-    //    props.changeTaskPriority(props.task.id, newValue, props.todolistId)
-    //}, [props.task.id, props.todolistId])
-
-    const activateEditMode = () => {
-        setShowPriority(false)
-    }
-
-    const changeSelectedItemHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        props.changeTaskPriority(props.task.id, +e.target.value, props.todolistId)
-        setShowPriority(true)
-    }
-
-    console.log(props.task)
-
-    createdDate(moment(props.task.addedDate).format('L'))
 
     return (
         <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? 'is-done' : ''}>
@@ -85,11 +47,11 @@ export const Task = React.memo((props: TaskPropsType) => {
                         className={style.taskCheckbox}
                         checked={props.task.status === TaskStatuses.Completed}
                         color='primary'
-                        onChange={onChangeHandler}
+                        onChange={onTaskStausChangeHandler}
                     />
                     <EditableSpan
                         value={props.task.title}
-                        onChange={onTitleChangeHandler}
+                        onChange={onTaskTitleChangeHandler}
                         editableSpanInputStyle={style.taskTitleEditableSpanInput}
                         editableSpanTextStyle={style.taskTitle}
                     />
@@ -98,7 +60,7 @@ export const Task = React.memo((props: TaskPropsType) => {
                     <IconButton className={style.taskButton} onClick={onClickSettingsButton} color="primary">
                         <SettingsIcon fontSize='inherit'/>
                     </IconButton>
-                    <IconButton className={style.taskButton} onClick={onClickHandler}
+                    <IconButton className={style.taskButton} onClick={onRemoveTaskClickHandler}
                                 disabled={props.task.entityStatus === 'loading'}>
                         <Delete fontSize='inherit'/>
                     </IconButton>
@@ -106,44 +68,13 @@ export const Task = React.memo((props: TaskPropsType) => {
             </div>
             {
                 settingsButtonStatus
-                    ? <div className={style.taskSettingsContainer}>
-                        <div className={style.settingsItemContainer}>
-                            <p className={style.taskItemHelpText}>Description:</p>
-                            <EditableSpan
-                                value={props.task.description}
-                                onChange={onDescriptionChangeHandler}
-                                editableSpanInputStyle={style.taskDescriptionEditableSpanInput}
-                                editableSpanTextStyle={style.itemText}
-                            />
-                        </div>
-                        <div className={style.settingsItemContainer}>
-                            <span className={style.taskItemHelpText}>Deadline:</span>
-                            <DataInputType
-                                value={props.task.deadline.substr(0, 10)}
-                                onChange={onDeadlineChangeHandler}
-                            />
-                        </div>
-                        <div className={style.settingsItemContainer}>
-                            <span className={style.taskItemHelpText}>Priority:</span>
-                            {
-                                showPriority
-                                    ? <span onDoubleClick={activateEditMode}
-                                            className={style.itemText}
-                                            style={{margin: '0 0 0 12px'}}>{taskPriority()}</span>
-                                    : <select className={style.taskSelect} onChange={changeSelectedItemHandler} name='priority'>
-                                        <option value={0} selected>Low</option>
-                                        <option value={1}>Middle</option>w
-                                        <option value={2}>Hight</option>
-                                        <option value={3}>Urgently</option>
-                                        <option value={4}>Later</option>
-                                    </select>
-                            }
-                        </div>
-                        <div className={style.settingsItemContainer}>
-                            <span className={style.taskItemHelpText} style={{margin: '0 12px 0 0'}}>Created:</span>
-                            <span className={style.itemText}>{props.task.addedDate ? createdDate(moment(props.task.addedDate).format('L')) : null}</span>
-                        </div>
-                    </div>
+                    ? <TaskSettings
+                        task={props.task}
+                        todolistId={props.todolistId}
+                        changeTaskDescription={props.changeTaskDescription}
+                        changeTaskDeadline={props.changeTaskDeadline}
+                        changeTaskPriority={props.changeTaskPriority}
+                    />
                     : null
             }
         </div>

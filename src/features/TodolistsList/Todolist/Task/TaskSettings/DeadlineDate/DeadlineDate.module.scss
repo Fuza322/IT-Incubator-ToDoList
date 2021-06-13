@@ -1,5 +1,5 @@
-@import 'src/common/styles/mixins';
-@import 'src/common/styles/variebles';
+@import '../../../../../../common/styles/mixins';
+@import '../../../../../../common/styles/variebles';
 
 .taskDeadlineInput {
   @include text($fontFamilyStyle, 14px, 550, $primaryColor);

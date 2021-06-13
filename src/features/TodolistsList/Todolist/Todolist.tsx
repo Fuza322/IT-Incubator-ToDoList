@@ -1,13 +1,13 @@
 import React, {useCallback, useEffect} from 'react'
 import {TaskStatuses, TaskType} from '../../../api/todolists-api'
 import {FilterValuesType, TodolistDomainType} from '../todolists-reducer'
+import moment from 'moment'
 import {useDispatch} from 'react-redux'
 import {fetchTasksTC} from './Task/tasks-reducer'
 import {AddItemForm} from '../../../components/AddItemForm/AddItemForm'
 import {EditableSpan} from '../../../components/EditableSpan/EditableSpan'
-import {ProgressBar} from '../../../components/ProgressBar/ProgressBar'
+import {ProgressBar} from './ProgressBar/ProgressBar'
 import {Task} from './Task/Task'
-import moment from 'moment'
 import {Button, ButtonGroup, IconButton} from '@material-ui/core'
 import {Delete} from '@material-ui/icons'
 import style from './Todolist.module.scss'
@@ -43,9 +43,10 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
         props.addTask(title, props.todolist.id)
     }, [props.addTask, props.todolist.id])
 
-    const removeTodolist = () => {
+    const removeTodolist = useCallback(() => {
         props.removeTodolist(props.todolist.id)
-    }
+    }, [props.removeTodolist, props.todolist.id])
+
     const changeTodolistTitle = useCallback((title: string) => {
         props.changeTodolistTitle(props.todolist.id, title)
     }, [props.todolist.id, props.changeTodolistTitle])

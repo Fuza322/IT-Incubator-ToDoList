@@ -1,5 +1,5 @@
-@import 'src/common/styles/mixins';
-@import 'src/common/styles/variebles';
+@import '../../../../common/styles/mixins';
+@import '../../../../common/styles/variebles';
 
 .progressContainer {
   @include flexBox(row, flex-start, center, nowrap);
