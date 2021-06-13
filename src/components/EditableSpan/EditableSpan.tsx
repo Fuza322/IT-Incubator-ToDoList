@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux'
 
 type EditableSpanPropsType = {
     value: string
-    onChange: (newValue: string) => void
+    onChangeValue: (newValue: string) => void
     editableSpanInputStyle?: string
     editableSpanTextStyle?: string
 }
@@ -25,11 +25,11 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
     const activateViewMode = () => {
         if (title !== '') {
             setEditMode(false)
-            props.onChange(title)
+            props.onChangeValue(title)
         } else {
             dispatch(setAppErrorAC('Сhanges not saved. Title is emply.'))
             setEditMode(false)
-            props.onChange(props.value)
+            props.onChangeValue(props.value)
         }
     }
     const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {

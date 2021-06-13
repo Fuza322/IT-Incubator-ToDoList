@@ -34,7 +34,7 @@ export const TaskSettings = React.memo((props: TaskSettingsPropsType) => {
                 <p className={style.taskItemHelpText}>Description:</p>
                 <EditableSpan
                     value={props.task.description}
-                    onChange={onTaskDescriptionChangeHandler}
+                    onChangeValue={onTaskDescriptionChangeHandler}
                     editableSpanInputStyle={style.taskDescriptionEditableSpanInput}
                     editableSpanTextStyle={style.itemText}
                 />
@@ -49,16 +49,16 @@ export const TaskSettings = React.memo((props: TaskSettingsPropsType) => {
             <div className={style.settingsItemContainer}>
                 <span className={style.taskItemHelpText}>Priority:</span>
                 <PrioritySelect
-                    task={props.task}
+                    priority={props.task.priority}
                     todolistId={props.todolistId}
-                    changeTaskPriority={onTaskPriorityChangeHandler}
+                    onChangePriority={onTaskPriorityChangeHandler}
                     priorityTextStyle={style.itemText}
                 />
             </div>
             <div className={style.settingsItemContainer}>
                 <span className={style.taskItemHelpText} style={{margin: '0 12px 0 0'}}>Created:</span>
                 <CreatedDate
-                    task={props.task}
+                    createdDate={props.task.addedDate}
                 />
             </div>
         </div>

@@ -1,10 +1,9 @@
 import React from 'react'
 import style from './CreatedDate.module.scss'
 import moment from "moment";
-import {TaskType} from "../../../../../../api/todolists-api";
 
 type CreatedDatePropsType = {
-    task: TaskType
+    createdDate: string
 }
 
 export const CreatedDate = React.memo((props: CreatedDatePropsType) => {
@@ -15,8 +14,8 @@ export const CreatedDate = React.memo((props: CreatedDatePropsType) => {
 
     return (
         <span className={style.createdDateText}>
-            {props.task.addedDate
-                ? createdDate(moment(props.task.addedDate).format('L'))
+            {props.createdDate
+                ? createdDate(moment(props.createdDate).format('L'))
                 : null
             }
         </span>

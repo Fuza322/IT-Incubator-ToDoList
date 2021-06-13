@@ -3,14 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="80ac300a-6491-4f62-8b40-c7d3c1b3e844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataInput/DataInput.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/TaskSettings/DeadlineDate/DeadlineDate.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataInput/DataInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/TaskSettings/DeadlineDate/DeadlineDate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProgressBar/ProgressBar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/ProgressBar/ProgressBar.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProgressBar/ProgressBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/ProgressBar/ProgressBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditableSpan/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditableSpan/EditableSpan.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/TaskSettings/CreatedDate/CreatedDate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/TaskSettings/CreatedDate/CreatedDate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/TaskSettings/PrioritySelect/PrioritySelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/TaskSettings/PrioritySelect/PrioritySelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/TaskSettings/TaskSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/TaskSettings/TaskSettings.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +103,7 @@
       <workItem from="1623189631946" duration="1036000" />
       <workItem from="1623233100734" duration="209000" />
       <workItem from="1623504877657" duration="5660000" />
-      <workItem from="1623547372590" duration="4674000" />
+      <workItem from="1623547372590" duration="6090000" />
     </task>
     <servers />
   </component>

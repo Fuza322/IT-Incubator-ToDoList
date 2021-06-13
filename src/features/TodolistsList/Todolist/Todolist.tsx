@@ -39,15 +39,15 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
         dispatch(fetchTasksTC(props.todolist.id))
     }, [demo, dispatch, props.todolist.id])
 
-    const addTask = useCallback((title: string) => {
+    const onAddTaskClickHandler = useCallback((title: string) => {
         props.addTask(title, props.todolist.id)
     }, [props.addTask, props.todolist.id])
 
-    const removeTodolist = useCallback(() => {
+    const onRemoveTodolistClickHandler = useCallback(() => {
         props.removeTodolist(props.todolist.id)
     }, [props.removeTodolist, props.todolist.id])
 
-    const changeTodolistTitle = useCallback((title: string) => {
+    const onChangeTodolistTitleClickHandler = useCallback((title: string) => {
         props.changeTodolistTitle(props.todolist.id, title)
     }, [props.todolist.id, props.changeTodolistTitle])
 
@@ -70,33 +70,35 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                 <div className={style.todolistTitleContainer}>
                     <EditableSpan
                         value={props.todolist.title}
-                        onChange={changeTodolistTitle}
+                        onChangeValue={onChangeTodolistTitleClickHandler}
                         editableSpanInputStyle={style.todolistTitleEditableSpanInput}
                         editableSpanTextStyle={style.todolistTitle}
                     />
                     <div className={style.todolistDisplay}>
                         <span>{props.todolist.addedDate ? moment(props.todolist.addedDate).format('L') : null}</span>
-                        <IconButton className={style.todolistDeleteButton} onClick={removeTodolist}
+                        <IconButton className={style.todolistDeleteButton} onClick={onRemoveTodolistClickHandler}
                                     disabled={props.todolist.entityStatus === 'loading'}>
                             <Delete fontSize='inherit'/>
                         </IconButton>
                     </div>
                 </div>
-                <AddItemForm addItem={addTask}
-                             disabled={props.todolist.entityStatus === 'loading'}
-                             addItemInputStyle={style.todolistInput}
+                <AddItemForm
+                    addItem={onAddTaskClickHandler}
+                    disabled={props.todolist.entityStatus === 'loading'}
+                    addItemInputStyle={style.todolistInput}
                 />
                 <div>
                     {tasksForTodolist.map(t =>
-                        <Task key={t.id}
-                              task={t}
-                              todolistId={props.todolist.id}
-                              changeTaskStatus={props.changeTaskStatus}
-                              changeTaskTitle={props.changeTaskTitle}
-                              changeTaskDescription={props.changeTaskDescription}
-                              changeTaskDeadline={props.changeTaskDeadline}
-                              changeTaskPriority={props.changeTaskPriority}
-                              removeTask={props.removeTask}
+                        <Task
+                            key={t.id}
+                            task={t}
+                            todolistId={props.todolist.id}
+                            changeTaskStatus={props.changeTaskStatus}
+                            changeTaskTitle={props.changeTaskTitle}
+                            changeTaskDescription={props.changeTaskDescription}
+                            changeTaskDeadline={props.changeTaskDeadline}
+                            changeTaskPriority={props.changeTaskPriority}
+                            removeTask={props.removeTask}
                         />)
                     }
                 </div>

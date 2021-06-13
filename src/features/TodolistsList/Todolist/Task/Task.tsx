@@ -31,8 +31,7 @@ export const Task = React.memo((props: TaskPropsType) => {
     }, [props.task.id, props.todolistId])
 
     const onTaskStausChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        let newIsDoneValue = e.currentTarget.checked
-        props.changeTaskStatus(props.task.id, newIsDoneValue ? TaskStatuses.Completed : TaskStatuses.New, props.todolistId)
+        props.changeTaskStatus(props.task.id, e.currentTarget.checked ? TaskStatuses.Completed : TaskStatuses.New, props.todolistId)
     }, [props.task.id, props.todolistId])
 
     const onTaskTitleChangeHandler = useCallback((newValue: string) => {
@@ -51,7 +50,7 @@ export const Task = React.memo((props: TaskPropsType) => {
                     />
                     <EditableSpan
                         value={props.task.title}
-                        onChange={onTaskTitleChangeHandler}
+                        onChangeValue={onTaskTitleChangeHandler}
                         editableSpanInputStyle={style.taskTitleEditableSpanInput}
                         editableSpanTextStyle={style.taskTitle}
                     />

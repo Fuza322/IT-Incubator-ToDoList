@@ -1,11 +1,10 @@
 import React, {ChangeEvent, useState} from 'react'
 import style from './PrioritySelect.module.scss'
-import {TaskType} from '../../../../../../api/todolists-api'
 
 type PrioritySelectPropsType = {
-    task: TaskType
+    priority: number
     todolistId: string
-    changeTaskPriority: (newPriority: number) => void
+    onChangePriority: (newPriority: number) => void
     priorityTextStyle?: string
 }
 
@@ -13,7 +12,7 @@ export const PrioritySelect = React.memo((props: PrioritySelectPropsType) => {
 
     const [editMode, setEditMode] = useState<boolean>(true)
     const taskPriority = () => {
-        switch (props.task.priority) {
+        switch (props.priority) {
             case 0:
                 return 'Low'
             case 1:
@@ -29,7 +28,7 @@ export const PrioritySelect = React.memo((props: PrioritySelectPropsType) => {
     }
 
     const onSelectedItemChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        props.changeTaskPriority(+e.target.value)
+        props.onChangePriority(+e.target.value)
         setEditMode(true)
     }
 
