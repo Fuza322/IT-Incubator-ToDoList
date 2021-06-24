@@ -2,8 +2,8 @@ import React, {ChangeEvent, useState} from 'react'
 import style from './PrioritySelect.module.scss'
 
 type PrioritySelectPropsType = {
-    priority: number
     todolistId: string
+    priority: number
     onChangePriority: (newPriority: number) => void
     priorityTextStyle?: string
 }
@@ -41,7 +41,7 @@ export const PrioritySelect = React.memo((props: PrioritySelectPropsType) => {
             ? <span onDoubleClick={activateEditModeClickHandler}
                     className={props.priorityTextStyle}
                     style={{margin: '0 0 0 12px'}}>{taskPriority()}</span>
-            : <select className={style.taskSelect} onChange={onSelectedItemChangeHandler} name='priority'>
+            : <select onChange={onSelectedItemChangeHandler} name='priority' className={style.taskSelect}>
                 <option value={0} selected>Low</option>
                 <option value={1}>Middle</option>
                 <option value={2}>Hight</option>

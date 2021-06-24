@@ -3,6 +3,7 @@
 
 .loginContainer {
   @include container();
+  justify-content: center;
 
   .welcomeTextContainer {
     @include flexBox(row, center, stretch, nowrap);
@@ -31,9 +32,9 @@
       bottom: -10px;
       left: 50%;
       width: 360px;
+      background-color: $primaryColor;
       height: 3px;
       border-radius: 35px;
-      background-color: $primaryColor;
       transform: translate(-50%, 50%);
       @media only screen and (max-width: 550px) {
         width: 250px;
@@ -46,7 +47,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 50px;
     margin-bottom: 15px;
-    @media only screen and (max-width: 850px) {
+    @media only screen and (max-width: 900px) {
       grid-template-rows: 1fr;
       grid-template-columns: none;
       grid-gap: 0;
@@ -61,13 +62,13 @@
       height: 100%;
       border-radius: 20px;
       box-shadow: 0 1px 10px $secondColor;
-      @media only screen and (max-width: 850px) {
+      @media only screen and (max-width: 900px) {
         display: none;
       }
 
       .projectImageContainer {
         width: 100%;
-        height: 280px;
+        height: 300px;
         overflow: hidden;
         border-bottom: 4px solid $secondColor;
         border-top-right-radius: 20px;
@@ -76,13 +77,13 @@
           height: 250px;
         }
         @media only screen and (max-width: 1170px) {
+          height: 240px;
+        }
+        @media only screen and (max-width: 1100px) {
           height: 220px;
         }
-        @media only screen and (max-width: 1050px) {
+        @media only screen and (max-width: 1000px) {
           height: 200px;
-        }
-        @media only screen and (max-width: 900px) {
-          height: 180px;
         }
 
         .projectImage {
@@ -120,13 +121,13 @@
       }
     }
 
-    /*-----------------------------------------------------*/
+    /*------------------------------------------------------------------------------------------------*/
     .authContainer {
       width: 100%;
       height: 100%;
       border-radius: 20px;
       box-shadow: 0 1px 10px $secondColor;
-      @media only screen and (max-width: 850px) {
+      @media only screen and (max-width: 900px) {
         width: 70vw;
         height: 70vh;
       }
@@ -162,33 +163,42 @@
               bottom: -12px;
               left: 50%;
               width: 100%;
+              background-color: $secondColor;
               height: 4px;
               border-radius: 35px;
-              background-color: $secondColor;
               transform: translate(-50%, 50%);
             }
           }
 
           .authErrorText {
             @include flexBox(row, stretch, center, nowrap);
-            @include text($fontFamilyStyle, 14px, 600, red);
-            height: 25px;
+            @include text($fontFamilyStyle, 13px, 600, red);
+            height: 35px;
             @media only screen and (max-width: 1120px) {
               font-size: 12px;
+            }
+            @media only screen and (max-width: 850px) {
+              height: 25px;
             }
           }
 
           .authRememberMeText {
-            @include text($fontFamilyStyle, 14px, 600, $backTextColor);
             height: 28px;
+            @include text($fontFamilyStyle, 14px, 600, $backTextColor);
           }
 
           .authButton {
+            background-color: $primaryColor;
             @include text($fontFamilyStyle, 16px, 500, $textColor);
             text-transform: capitalize;
-            margin-top: 8px;
+            margin-top: 15px;
             @media only screen and (max-width: 750px) {
               font-size: 14px;
+            }
+            @media only screen and (min-width: 850px) and (min-height: 600px) {
+              &:hover {
+                background-color: $secondColor;
+              }
             }
           }
         }

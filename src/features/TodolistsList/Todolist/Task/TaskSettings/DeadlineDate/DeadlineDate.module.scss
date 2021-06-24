@@ -2,10 +2,10 @@
 @import '../../../../../../common/styles/variebles';
 
 .taskDeadlineInput {
-  @include text($fontFamilyStyle, 14px, 550, $primaryColor);
   width: 140px;
-  padding: 0 4px;
+  @include text($fontFamilyStyle, 14px, 550, $primaryColor);
   border-width: 0.6px;
   border-color: $secondColor;
   border-radius: 8px;
+  padding: 0 4px;
 }

@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {AppRootStateType} from '../../app/store'
-import {useDispatch, useSelector} from 'react-redux'
 import {
     addTodolistTC,
     changeTodolistFilterAC,
@@ -13,8 +13,8 @@ import {
 } from './todolists-reducer'
 import {addTaskTC, removeTaskTC, TasksStateType, updateTaskTC} from './Todolist/Task/tasks-reducer'
 import {TaskStatuses} from '../../api/todolists-api'
-import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
+import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import Particles from 'react-particles-js'
 import Masonry from 'react-masonry-css'
 import style from './TodolistsList.module.scss'
@@ -38,20 +38,20 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         dispatch(fetchTodolistsTC())
     }, [demo, isLoggedIn, dispatch])
 
-    const removeTask = useCallback(function (id: string, todolistId: string) {
-        dispatch(removeTaskTC(id, todolistId))
-    }, [dispatch])
-
     const addTask = useCallback(function (title: string, todolistId: string) {
         dispatch(addTaskTC(title, todolistId))
     }, [dispatch])
 
-    const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
-        dispatch(updateTaskTC(id, {status}, todolistId))
+    const removeTask = useCallback(function (id: string, todolistId: string) {
+        dispatch(removeTaskTC(id, todolistId))
     }, [dispatch])
 
     const changeTaskTitle = useCallback(function (id: string, newTitle: string, todolistId: string) {
         dispatch(updateTaskTC(id, {title: newTitle}, todolistId))
+    }, [dispatch])
+
+    const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
+        dispatch(updateTaskTC(id, {status}, todolistId))
     }, [dispatch])
 
     const changeTaskDescription = useCallback(function (id: string, newDescription: string, todolistId: string) {
@@ -66,8 +66,9 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         dispatch(updateTaskTC(id, {priority: newPriority}, todolistId))
     }, [dispatch])
 
-    const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
-        dispatch(changeTodolistFilterAC(todolistId, value))
+
+    const addTodolist = useCallback((title: string) => {
+        dispatch(addTodolistTC(title))
     }, [dispatch])
 
     const removeTodolist = useCallback(function (id: string) {
@@ -78,9 +79,10 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         dispatch(changeTodolistTitleTC(id, title))
     }, [dispatch])
 
-    const addTodolist = useCallback((title: string) => {
-        dispatch(addTodolistTC(title))
+    const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
+        dispatch(changeTodolistFilterAC(todolistId, value))
     }, [dispatch])
+
 
     if (!isLoggedIn) {
         return <Redirect to={'/login'}/>
@@ -121,12 +123,12 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         default: 4,
         1300: 3,
         1000: 2,
-        650: 1
+        680: 1
     };
 
     return (
         <div className={style.todolistsListBlock}>
-            <Particles className={style.particles} params={particlesOptions}/>
+            <Particles params={particlesOptions} className={style.particles}/>
             <div data-aos='fade-right' data-aos-duration='600' className={style.todolistsListInputContainer}>
                 <AddItemForm
                     addItem={addTodolist}
@@ -136,8 +138,8 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
             <div>
                 <Masonry
                     breakpointCols={breakpointColumnsObj}
-                    className={style.todolistslits}
-                    columnClassName={style.todolistColumnItem}>
+                    columnClassName={style.todolistColumnItem}
+                    className={style.todolistslits}>
                     {
                         todolists.map(tl => {
                             let allTodolistTasks = tasks[tl.id]
@@ -146,16 +148,16 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
                                     key={tl.id}
                                     todolist={tl}
                                     tasks={allTodolistTasks}
-                                    changeTaskStatus={changeStatus}
+                                    addTask={addTask}
+                                    removeTask={removeTask}
                                     changeTaskTitle={changeTaskTitle}
+                                    changeTaskStatus={changeStatus}
                                     changeTaskDescription={changeTaskDescription}
                                     changeTaskDeadline={changeTaskDeadline}
                                     changeTaskPriority={changeTaskPriority}
-                                    removeTask={removeTask}
-                                    changeFilter={changeFilter}
-                                    addTask={addTask}
                                     removeTodolist={removeTodolist}
                                     changeTodolistTitle={changeTodolistTitle}
+                                    changeFilter={changeFilter}
                                     demo={demo}
                                 />
                             )

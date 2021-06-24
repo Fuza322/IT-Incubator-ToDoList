@@ -1,13 +1,13 @@
-import {AddTodolistActionType, RemoveTodolistActionType, SetTodolistsActionType} from '../../todolists-reducer'
-import {TaskPriorities, TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelType} from '../../../../api/todolists-api'
 import {Dispatch} from 'redux'
 import {AppRootStateType} from '../../../../app/store'
+import {AddTodolistActionType, RemoveTodolistActionType, SetTodolistsActionType} from '../../todolists-reducer'
 import {
     RequestStatusType,
     SetAppErrorActionType,
     setAppStatusAC,
     SetAppStatusActionType
 } from '../../../../app/app-reducer'
+import {TaskPriorities, TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelType} from '../../../../api/todolists-api'
 import {handleServerAppError, handleServerNetworkError} from '../../../../utils/error-utils'
 
 const initialState: TasksStateType = {}
@@ -156,11 +156,11 @@ export const updateTaskTC = (taskId: string, domainModel: UpdateDomainTaskModelT
 // types
 export type UpdateDomainTaskModelType = {
     title?: string
-    description?: string
     status?: TaskStatuses
+    description?: string
+    deadline?: string
     priority?: TaskPriorities
     startDate?: string
-    deadline?: string
 }
 type ActionsType =
     | ReturnType<typeof setTasksAC>

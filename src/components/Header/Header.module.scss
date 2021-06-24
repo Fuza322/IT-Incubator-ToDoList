@@ -14,9 +14,9 @@
       .headerLogo {
         width: 60px;
         height: 60px;
-        overflow: hidden;
-        border-radius: 25px;
         border: 3px solid white;
+        border-radius: 25px;
+        overflow: hidden;
         margin-right: 20px;
 
         .headerLogoImg {
@@ -50,7 +50,7 @@
         @include text($fontFamilyStyle, 16px, 600, $textColor);
         margin: 0 5px 0 0;
         @media only screen and (max-width: 750px) {
-          @include text($fontFamilyStyle, 14px, 600, $textColor);
+          font-size: 14px;
         }
       }
 
@@ -58,7 +58,7 @@
         @include text($fontFamilyStyle, 16px, 500, $textColor);
         margin: 0 20px 0 0;
         @media only screen and (max-width: 750px) {
-          @include text($fontFamilyStyle, 14px, 500, $textColor);
+          font-size: 14px;
           margin: 0;
         }
       }
@@ -81,8 +81,8 @@
 
       @media only screen and (min-width: 850px) and (min-height: 600px) {
         &:hover {
-          cursor: pointer;
           background-color: $secondColor;
+          cursor: pointer;
         }
       }
     }

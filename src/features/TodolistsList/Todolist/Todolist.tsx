@@ -1,13 +1,13 @@
 import React, {useCallback, useEffect} from 'react'
-import {TaskStatuses, TaskType} from '../../../api/todolists-api'
-import {FilterValuesType, TodolistDomainType} from '../todolists-reducer'
-import moment from 'moment'
 import {useDispatch} from 'react-redux'
+import {FilterValuesType, TodolistDomainType} from '../todolists-reducer'
 import {fetchTasksTC} from './Task/tasks-reducer'
+import {TaskStatuses, TaskType} from '../../../api/todolists-api'
+import {Task} from './Task/Task'
 import {AddItemForm} from '../../../components/AddItemForm/AddItemForm'
 import {EditableSpan} from '../../../components/EditableSpan/EditableSpan'
 import {ProgressBar} from './ProgressBar/ProgressBar'
-import {Task} from './Task/Task'
+import moment from 'moment'
 import {Button, ButtonGroup, IconButton} from '@material-ui/core'
 import {Delete} from '@material-ui/icons'
 import style from './Todolist.module.scss'
@@ -15,16 +15,16 @@ import style from './Todolist.module.scss'
 type TodolistPropsType = {
     todolist: TodolistDomainType
     tasks: Array<TaskType>
-    changeFilter: (value: FilterValuesType, todolistId: string) => void
     addTask: (title: string, todolistId: string) => void
-    changeTaskStatus: (id: string, status: TaskStatuses, todolistId: string) => void
+    removeTask: (taskId: string, todolistId: string) => void
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
+    changeTaskStatus: (id: string, status: TaskStatuses, todolistId: string) => void
     changeTaskDescription: (taskId: string, newDescription: string, todolistId: string) => void
     changeTaskDeadline: (taskId: string, newDeadline: string, todolistId: string) => void
     changeTaskPriority: (taskId: string, newPriority: number, todolistId: string) => void
-    removeTask: (taskId: string, todolistId: string) => void
     removeTodolist: (id: string) => void
     changeTodolistTitle: (id: string, newTitle: string) => void
+    changeFilter: (value: FilterValuesType, todolistId: string) => void
     demo?: boolean
 }
 
@@ -76,8 +76,9 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                     />
                     <div className={style.todolistDisplay}>
                         <span>{props.todolist.addedDate ? moment(props.todolist.addedDate).format('L') : null}</span>
-                        <IconButton className={style.todolistDeleteButton} onClick={onRemoveTodolistClickHandler}
-                                    disabled={props.todolist.entityStatus === 'loading'}>
+                        <IconButton onClick={onRemoveTodolistClickHandler}
+                                    disabled={props.todolist.entityStatus === 'loading'}
+                                    className={style.todolistDeleteButton}>
                             <Delete fontSize='inherit'/>
                         </IconButton>
                     </div>
@@ -91,14 +92,15 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                     {tasksForTodolist.map(t =>
                         <Task
                             key={t.id}
-                            task={t}
                             todolistId={props.todolist.id}
-                            changeTaskStatus={props.changeTaskStatus}
+                            task={t}
+                            removeTask={props.removeTask}
                             changeTaskTitle={props.changeTaskTitle}
+                            changeTaskStatus={props.changeTaskStatus}
                             changeTaskDescription={props.changeTaskDescription}
                             changeTaskDeadline={props.changeTaskDeadline}
                             changeTaskPriority={props.changeTaskPriority}
-                            removeTask={props.removeTask}
+
                         />)
                     }
                 </div>

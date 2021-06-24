@@ -58,7 +58,7 @@ export const Login = React.memo(function () {
             <div className={style.loginContent}>
                 <div data-aos='zoom-in' data-aos-duration='600' className={style.projectContainer}>
                     <div className={style.projectImageContainer}>
-                        <img className={style.projectImage} src={projectImage} alt='ProjectImage'/>
+                        <img src={projectImage} alt='ProjectImage' className={style.projectImage}/>
                     </div>
                     <div className={style.projectBody}>
                         <div className={style.projectInfo}>
@@ -75,7 +75,7 @@ export const Login = React.memo(function () {
                 </div>
 
                 <Grid data-aos='zoom-in' data-aos-duration='600' className={style.authContainer} container>
-                    <form className={style.authForm} onSubmit={formik.handleSubmit}>
+                    <form onSubmit={formik.handleSubmit} className={style.authForm}>
                         <FormControl className={style.authFormControl}>
                             <div className={style.authTextContainer}>
                                 <h3>Authorization</h3>
@@ -93,8 +93,8 @@ export const Login = React.memo(function () {
                                     : <div className={style.authErrorText}></div>
                             }
                             <TextField
-                                variant='outlined'
                                 type='password'
+                                variant='outlined'
                                 label='Password'
                                 {...formik.getFieldProps('password')}
                             />
@@ -104,16 +104,14 @@ export const Login = React.memo(function () {
                                     : <div className={style.authErrorText}></div>
                             }
                             <FormControlLabel
-                                className={style.authRememberMeText}
                                 label={'Remember me'}
+                                className={style.authRememberMeText}
                                 control={
                                     <Checkbox
                                         {...formik.getFieldProps('rememberMe')}
                                     />}
                             />
-                            <Button className={style.authButton} type={'submit'} variant={'contained'}
-                                    color={'primary'}>Login
-                            </Button>
+                            <Button type={'submit'} variant={'contained'} className={style.authButton}>Login</Button>
                         </FormControl>
                     </form>
                 </Grid>

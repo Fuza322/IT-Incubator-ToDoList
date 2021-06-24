@@ -1,8 +1,7 @@
 import React, {ChangeEvent, useState} from 'react'
-import {TextField} from '@material-ui/core'
-import style from './EditableSpan.module.scss'
-import {setAppErrorAC} from '../../app/app-reducer'
 import {useDispatch} from 'react-redux'
+import {setAppErrorAC} from '../../app/app-reducer'
+import {TextField} from '@material-ui/core'
 
 type EditableSpanPropsType = {
     value: string
@@ -15,7 +14,7 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
 
     let [editMode, setEditMode] = useState(false)
     let [title, setTitle] = useState(props.value)
-    
+
     const dispatch = useDispatch()
 
     const activateEditMode = () => {
@@ -38,10 +37,12 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
 
     return editMode
         ? <TextField
-            className={props.editableSpanInputStyle}
-            value={title} onChange={changeTitle}
-            autoFocus onBlur={activateViewMode}
+            value={title}
+            onChange={changeTitle}
+            onBlur={activateViewMode}
+            autoFocus
             color='primary'
+            className={props.editableSpanInputStyle}
         />
-        : <span className={props.editableSpanTextStyle} onDoubleClick={activateEditMode}>{props.value}</span>
+        : <span onDoubleClick={activateEditMode} className={props.editableSpanTextStyle}>{props.value}</span>
 })

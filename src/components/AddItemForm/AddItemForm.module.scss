@@ -2,7 +2,8 @@
 @import 'src/common/styles/variebles';
 
 .addItemContainer {
-  @include flexBox(row, flex-start, stretch, nowrap);
+  width: 100%;
+  @include flexBox(row, flex-start, flex-start, nowrap);
   margin: 10px 0;
 
   .addItemButton {

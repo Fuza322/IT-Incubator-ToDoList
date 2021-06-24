@@ -1,13 +1,14 @@
 import React, {useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {Redirect, Route, Switch} from 'react-router-dom'
 import {AppRootStateType} from './store'
-import {Header} from '../components/Header/Header'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
 import {Login} from '../features/Login/Login'
+import {PageNotFound} from './PageNotFound/PageNotFound'
+import {Header} from '../components/Header/Header'
 import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
-import {useDispatch, useSelector} from 'react-redux'
 import {initializeAppTC} from './app-reducer'
-import {Redirect, Route, Switch} from 'react-router-dom'
-import {CircularProgress, Container} from '@material-ui/core'
+import {CircularProgress} from '@material-ui/core'
 import style from './App.module.scss'
 
 type PropsType = {
@@ -39,7 +40,7 @@ export function App({demo = false}: PropsType) {
                 <Switch>
                     <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>
                     <Route path={'/login'} render={() => <Login/>}/>
-                    <Route path={'/404'} render={() => <h1>404: PAGE NOT FOUND</h1>}/>
+                    <Route path={'/404'} render={() => <PageNotFound/>}/>
                     <Redirect from={'*'} to={'/404'}/>
                 </Switch>
             </section>

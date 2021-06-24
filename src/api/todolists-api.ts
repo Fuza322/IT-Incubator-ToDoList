@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {RequestStatusType} from '../app/app-reducer'
-import moment from "moment";
+import moment from 'moment'
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.1/',
@@ -113,7 +113,6 @@ export enum TaskStatuses {
     Completed = 2,
     Draft = 3
 }
-
 export enum TaskPriorities {
     Low = 0,
     Middle = 1,

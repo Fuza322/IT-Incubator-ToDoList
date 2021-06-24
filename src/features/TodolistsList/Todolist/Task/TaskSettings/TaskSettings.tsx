@@ -1,14 +1,14 @@
 import React, {useCallback} from 'react'
-import style from './TaskSettings.module.scss'
+import {TaskType} from '../../../../../api/todolists-api'
 import {EditableSpan} from '../../../../../components/EditableSpan/EditableSpan'
 import {DeadlineDate} from './DeadlineDate/DeadlineDate'
-import {TaskType} from '../../../../../api/todolists-api'
 import {PrioritySelect} from './PrioritySelect/PrioritySelect'
 import {CreatedDate} from './CreatedDate/CreatedDate'
+import style from './TaskSettings.module.scss'
 
 type TaskSettingsPropsType = {
-    task: TaskType
     todolistId: string
+    task: TaskType
     changeTaskDescription: (taskId: string, newDescription: string, todolistId: string) => void
     changeTaskDeadline: (taskId: string, newDeadline: string, todolistId: string) => void
     changeTaskPriority: (taskId: string, newPriority: number, todolistId: string) => void
@@ -49,8 +49,8 @@ export const TaskSettings = React.memo((props: TaskSettingsPropsType) => {
             <div className={style.settingsItemContainer}>
                 <span className={style.taskItemHelpText}>Priority:</span>
                 <PrioritySelect
-                    priority={props.task.priority}
                     todolistId={props.todolistId}
+                    priority={props.task.priority}
                     onChangePriority={onTaskPriorityChangeHandler}
                     priorityTextStyle={style.itemText}
                 />

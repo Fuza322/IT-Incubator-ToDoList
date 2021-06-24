@@ -1,5 +1,5 @@
-import {todolistsAPI, TodolistType} from '../../api/todolists-api'
 import {Dispatch} from 'redux'
+import {todolistsAPI, TodolistType} from '../../api/todolists-api'
 import {RequestStatusType, SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer'
 import {handleServerAppError, handleServerNetworkError} from '../../utils/error-utils'
 
@@ -118,10 +118,10 @@ export const changeTodolistTitleTC = (todolistId: string, title: string) => {
 }
 
 // types
-export type FilterValuesType = 'all' | 'active' | 'completed'
 export type SetTodolistsActionType = ReturnType<typeof setTodolistsAC>
 export type AddTodolistActionType = ReturnType<typeof addTodolistAC>
 export type RemoveTodolistActionType = ReturnType<typeof removeTodolistAC>
+export type FilterValuesType = 'all' | 'active' | 'completed'
 type ActionsType =
     | SetTodolistsActionType
     | AddTodolistActionType

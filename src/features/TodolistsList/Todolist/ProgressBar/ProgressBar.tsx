@@ -36,4 +36,4 @@ export const ProgressBar = React.memo(function (props: ProgressBarPropsType) {
                 </div>
             </div>
     )
-});
+})

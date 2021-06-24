@@ -26,15 +26,6 @@
   color: $textColor;
 }
 
-@mixin inputAndTextArea($width, $color, $border, $borderRadius, $transition) {
-  width: $width;
-  color: $color;
-  border: $border;
-  border-radius: $borderRadius;
-  outline: none;
-  transition: $transition;
-}
-
 @mixin button($width, $height, $fonstSize, $backgroundColor, $borderColor) {
   width: $width;
   height: $height;

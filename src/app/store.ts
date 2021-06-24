@@ -1,7 +1,7 @@
-import {tasksReducer} from '../features/TodolistsList/Todolist/Task/tasks-reducer'
-import {todolistsReducer} from '../features/TodolistsList/todolists-reducer'
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import thunkMiddleware from 'redux-thunk'
+import {tasksReducer} from '../features/TodolistsList/Todolist/Task/tasks-reducer'
+import {todolistsReducer} from '../features/TodolistsList/todolists-reducer'
 import {appReducer} from './app-reducer'
 import {authReducer} from '../features/Login/auth-reducer'
 

@@ -3,6 +3,7 @@
 
 .todolistsListBlock {
   padding: 20px 0 0 0;
+  width: 92vw;
 
   .particles {
     position: fixed;
@@ -16,27 +17,30 @@
 
   .todolistsListInputContainer {
     display: flex;
-    width: 90vw;
     margin: 0 0 30px 0;
 
     .todolistsListInput {
-      background-color: #ffffff;
       width: 300px;
+      background-color: $textColor;
+    }
+
+    @media only screen and (max-width: 680px) {
+      width: 100%;
     }
   }
 
   .todolistslits {
     display: flex;
-    margin-left: -30px;
-    width: auto;
+    justify-content: flex-start;
+    margin-left: -25px;
   }
 
   .todolistColumnItem {
-    padding-left: 30px;
     background-clip: padding-box;
+    padding-left: 25px;
   }
 
   .todolistColumnItem > div {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 }

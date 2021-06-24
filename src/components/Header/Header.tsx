@@ -1,7 +1,7 @@
 import React from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import {AppRootStateType} from '../../app/store'
 import {RequestStatusType} from '../../app/app-reducer'
-import {useDispatch, useSelector} from 'react-redux'
 import {logoutTC} from '../../features/Login/auth-reducer'
 import {AppBar, Button, LinearProgress, Toolbar, Typography} from '@material-ui/core'
 import headerLogoImg from '../../assets/images/primaryLogo.png'

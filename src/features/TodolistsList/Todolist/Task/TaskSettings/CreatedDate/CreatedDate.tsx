@@ -1,6 +1,6 @@
 import React from 'react'
+import moment from 'moment'
 import style from './CreatedDate.module.scss'
-import moment from "moment";
 
 type CreatedDatePropsType = {
     createdDate: string

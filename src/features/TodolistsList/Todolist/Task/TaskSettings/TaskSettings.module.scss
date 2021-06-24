@@ -2,7 +2,7 @@
 @import 'src/common/styles/variebles';
 
 .taskSettingsContainer {
-  @include flexBox(column, start, stretch, nowrap);
+  @include flexBox(column, flex-start, stretch, nowrap);
   border-radius: 20px;
   box-shadow: inset 1px 1px 1px $secondColor, 1px 1px 2px $secondColor;
   padding: 3px 0 3px 25px;
@@ -19,6 +19,7 @@
 
     .itemText {
       @include text($fontFamilyStyle, 14px, 500, $greyTextColor);
+      width: 100%;
     }
 
     .taskDescriptionEditableSpanInput {
