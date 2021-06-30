@@ -57,9 +57,7 @@ export const Login = React.memo(function () {
             </div>
             <div className={style.loginContent}>
                 <div data-aos="zoom-in" data-aos-duration="600" className={style.projectContainer}>
-                    <div className={style.projectImageContainer}>
-                        <img src={projectImage} alt="ProjectImage" className={style.projectImage}/>
-                    </div>
+                    <div className={style.projectImageContainer} style={{backgroundImage: `url(${projectImage})`}}></div>
                     <div className={style.projectBody}>
                         <div className={style.projectInfo}>
                             <h3 className={style.projectHelpText}>Task Tracker help you to:</h3>
