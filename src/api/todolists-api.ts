@@ -1,34 +1,34 @@
-import axios from 'axios'
-import {RequestStatusType} from '../app/app-reducer'
-import moment from 'moment'
+import axios from "axios"
+import moment from "moment"
+import {RequestStatusType} from "../app/app-reducer"
 
 const instance = axios.create({
-    baseURL: 'https://social-network.samuraijs.com/api/1.1/',
+    baseURL: "https://social-network.samuraijs.com/api/1.1/",
     withCredentials: true,
     headers: {
-        'API-KEY': '16b4ed62-554a-48da-9962-5232d2d85589'
+        'API-KEY': "16b4ed62-554a-48da-9962-5232d2d85589"
     }
 })
 
 // api
 export const authAPI = {
     login(data: LoginParamsType) {
-        return instance.post<ResponseType<{ userId: number }>>('auth/login', data)
+        return instance.post<ResponseType<{ userId: number }>>("auth/login", data)
     },
     me() {
-        return instance.get<ResponseType<AuthMeResponceType>>('auth/me')
+        return instance.get<ResponseType<AuthMeResponceType>>("auth/me")
     },
     logout() {
-        return instance.delete<ResponseType>('auth/login')
+        return instance.delete<ResponseType>("auth/login")
     }
 }
 
 export const todolistsAPI = {
     getTodolists() {
-        return instance.get<TodolistType[]>('todo-lists')
+        return instance.get<TodolistType[]>("todo-lists")
     },
     createTodolist(title: string) {
-        return instance.post<ResponseType<{ item: TodolistType }>>('todo-lists', {title: title})
+        return instance.post<ResponseType<{ item: TodolistType }>>("todo-lists", {title: title})
     },
     deleteTodolist(id: string) {
         return instance.delete<ResponseType>(`todo-lists/${id}`)
@@ -46,8 +46,8 @@ export const todolistsAPI = {
         return instance.post<ResponseType<{ item: TaskType }>>(`todo-lists/${todolistId}/tasks`,
             {
                 title: taskTitile,
-                description: 'Empty description',
-                deadline: moment().format('L'),
+                description: "Empty description",
+                deadline: moment().format("L"),
                 priority: 0
             }
         )
@@ -113,6 +113,7 @@ export enum TaskStatuses {
     Completed = 2,
     Draft = 3
 }
+
 export enum TaskPriorities {
     Low = 0,
     Middle = 1,

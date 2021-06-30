@@ -1,12 +1,12 @@
-import React from 'react'
-import {Redirect} from 'react-router-dom'
-import {AppRootStateType} from '../../app/store'
-import {useFormik} from 'formik'
-import {loginTC} from './auth-reducer'
-import {useDispatch, useSelector} from 'react-redux'
-import projectImage from './../../assets/images/todolist.png'
-import {Checkbox, FormControl, FormControlLabel, TextField, Button, Grid} from '@material-ui/core'
-import style from './Login.module.scss'
+import React from "react"
+import {Redirect} from "react-router-dom"
+import {AppRootStateType} from "../../app/store"
+import {useFormik} from "formik"
+import {loginTC} from "./auth-reducer"
+import {useDispatch, useSelector} from "react-redux"
+import projectImage from "./../../assets/images/todolist.png"
+import {Checkbox, FormControl, FormControlLabel, TextField, Button, Grid} from "@material-ui/core"
+import style from "./Login.module.scss"
 
 type FormikErrorType = {
     email?: string
@@ -22,21 +22,21 @@ export const Login = React.memo(function () {
 
     const formik = useFormik({
         initialValues: {
-            email: '',
-            password: '',
+            email: "",
+            password: "",
             rememberMe: false
         },
         validate: (values) => {
             const errors: FormikErrorType = {};
             if (!values.email) {
-                errors.email = 'Required.'
+                errors.email = "Required."
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-                errors.email = 'Invalid email address.'
+                errors.email = "Invalid email address."
             }
             if (!values.password) {
-                errors.password = 'Required.'
+                errors.password = "Required."
             } else if (values.password.length < 6) {
-                errors.password = 'Password must be more than six characters.'
+                errors.password = "Password must be more than six characters."
             }
             return errors
         },
@@ -47,7 +47,7 @@ export const Login = React.memo(function () {
     })
 
     if (isLoggedIn) {
-        return <Redirect to={'/'}/>
+        return <Redirect to={"/"}/>
     }
 
     return (
@@ -56,9 +56,9 @@ export const Login = React.memo(function () {
                 <h3>Welcome to Task Tracker application</h3>
             </div>
             <div className={style.loginContent}>
-                <div data-aos='zoom-in' data-aos-duration='600' className={style.projectContainer}>
+                <div data-aos="zoom-in" data-aos-duration="600" className={style.projectContainer}>
                     <div className={style.projectImageContainer}>
-                        <img src={projectImage} alt='ProjectImage' className={style.projectImage}/>
+                        <img src={projectImage} alt="ProjectImage" className={style.projectImage}/>
                     </div>
                     <div className={style.projectBody}>
                         <div className={style.projectInfo}>
@@ -74,7 +74,7 @@ export const Login = React.memo(function () {
                     </div>
                 </div>
 
-                <Grid data-aos='zoom-in' data-aos-duration='600' className={style.authContainer} container>
+                <Grid data-aos="zoom-in" data-aos-duration="600" className={style.authContainer} container>
                     <form onSubmit={formik.handleSubmit} className={style.authForm}>
                         <FormControl className={style.authFormControl}>
                             <div className={style.authTextContainer}>
@@ -83,9 +83,9 @@ export const Login = React.memo(function () {
                             {/*<p>Email: free@samuraijs.com</p>*/}
                             {/*<p>Password: free</p>*/}
                             <TextField
-                                variant='outlined'
-                                label='Email'
-                                {...formik.getFieldProps('email')}
+                                variant="outlined"
+                                label="Email"
+                                {...formik.getFieldProps("email")}
                             />
                             {
                                 formik.touched.email && formik.errors.email
@@ -93,10 +93,10 @@ export const Login = React.memo(function () {
                                     : <div className={style.authErrorText}></div>
                             }
                             <TextField
-                                type='password'
-                                variant='outlined'
-                                label='Password'
-                                {...formik.getFieldProps('password')}
+                                type="password"
+                                variant="outlined"
+                                label="Password"
+                                {...formik.getFieldProps("password")}
                             />
                             {
                                 formik.touched.password && formik.errors.password
@@ -104,14 +104,14 @@ export const Login = React.memo(function () {
                                     : <div className={style.authErrorText}></div>
                             }
                             <FormControlLabel
-                                label={'Remember me'}
+                                label={"Remember me"}
                                 className={style.authRememberMeText}
                                 control={
                                     <Checkbox
-                                        {...formik.getFieldProps('rememberMe')}
+                                        {...formik.getFieldProps("rememberMe")}
                                     />}
                             />
-                            <Button type={'submit'} variant={'contained'} className={style.authButton}>Login</Button>
+                            <Button type={"submit"} variant={"contained"} className={style.authButton}>Login</Button>
                         </FormControl>
                     </form>
                 </Grid>

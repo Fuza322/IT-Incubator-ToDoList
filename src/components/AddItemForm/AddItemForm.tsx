@@ -1,7 +1,7 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
-import {IconButton, TextField} from '@material-ui/core'
-import {AddBox} from '@material-ui/icons'
-import style from './AddItemForm.module.scss'
+import React, {ChangeEvent, KeyboardEvent, useState} from "react"
+import {IconButton, TextField} from "@material-ui/core"
+import {AddBox} from "@material-ui/icons"
+import style from "./AddItemForm.module.scss"
 
 type AddItemFormPropsType = {
     addItem: (title: string) => void
@@ -11,15 +11,15 @@ type AddItemFormPropsType = {
 
 export const AddItemForm = React.memo(function ({addItem, disabled = false, addItemInputStyle}: AddItemFormPropsType) {
 
-    let [title, setTitle] = useState<string>('')
+    let [title, setTitle] = useState<string>("")
     let [error, setError] = useState<string | null>(null)
 
     const addItemHandler = () => {
-        if (title.trim() !== '') {
+        if (title.trim() !== "") {
             addItem(title)
-            setTitle('')
+            setTitle("")
         } else {
-            setError('Title is required')
+            setError("Title is required")
         }
     }
 
@@ -29,9 +29,9 @@ export const AddItemForm = React.memo(function ({addItem, disabled = false, addI
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (error !== null) {
-            setError('')
+            setError("")
         }
-        if (e.key === 'Enter') {
+        if (e.key === "Enter") {
             addItemHandler()
         }
     }
@@ -45,11 +45,11 @@ export const AddItemForm = React.memo(function ({addItem, disabled = false, addI
                 disabled={disabled}
                 error={!!error}
                 helperText={error}
-                label='Title'
-                variant='outlined'
+                label="Title"
+                variant="outlined"
                 className={addItemInputStyle}
             />
-            <IconButton onClick={addItemHandler} disabled={disabled} className={style.addItemButton} color='primary'>
+            <IconButton onClick={addItemHandler} disabled={disabled} className={style.addItemButton} color="primary">
                 <AddBox/>
             </IconButton>
         </div>

@@ -1,6 +1,6 @@
-import React from 'react'
-import moment from 'moment'
-import style from './CreatedDate.module.scss'
+import React from "react"
+import moment from "moment"
+import style from "./CreatedDate.module.scss"
 
 type CreatedDatePropsType = {
     createdDate: string
@@ -15,7 +15,7 @@ export const CreatedDate = React.memo((props: CreatedDatePropsType) => {
     return (
         <span className={style.createdDateText}>
             {props.createdDate
-                ? createdDate(moment(props.createdDate).format('L'))
+                ? createdDate(moment(props.createdDate).format("L"))
                 : null
             }
         </span>

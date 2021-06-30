@@ -1,8 +1,8 @@
-import React, {useCallback} from 'react'
-import {TaskType} from '../../../../api/todolists-api'
-import style from './ProgressBar.module.scss'
+import React, {useCallback} from "react"
+import {TaskType} from "../../../../api/todolists-api"
+import style from "./ProgressBar.module.scss"
 //@ts-ignore
-import {CircleProgress} from 'react-gradient-progress'
+import {CircleProgress} from "react-gradient-progress"
 
 type ProgressBarPropsType = {
     tasks: Array<TaskType>
@@ -28,7 +28,7 @@ export const ProgressBar = React.memo(function (props: ProgressBarPropsType) {
                 <div className={style.circleProgressContainer}>
                     <CircleProgress
                         percentage={countPercentValue(props.tasks)}
-                        primaryColor={['#0085eb', '#dfe5ff']}
+                        primaryColor={["#0085eb", "#dfe5ff"]}
                         secondaryColor={'#FFE5FF'}
                         strokeWidth={5}
                         width={70}

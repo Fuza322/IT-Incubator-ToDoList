@@ -1,7 +1,7 @@
-import React, {useCallback, useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {Redirect} from 'react-router-dom'
-import {AppRootStateType} from '../../app/store'
+import React, {useCallback, useEffect} from "react"
+import {useDispatch, useSelector} from "react-redux"
+import {Redirect} from "react-router-dom"
+import {AppRootStateType} from "../../app/store"
 import {
     addTodolistTC,
     changeTodolistFilterAC,
@@ -10,14 +10,14 @@ import {
     FilterValuesType,
     removeTodolistTC,
     TodolistDomainType
-} from './todolists-reducer'
-import {addTaskTC, removeTaskTC, TasksStateType, updateTaskTC} from './Todolist/Task/tasks-reducer'
-import {TaskStatuses} from '../../api/todolists-api'
-import {Todolist} from './Todolist/Todolist'
-import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
-import Particles from 'react-particles-js'
-import Masonry from 'react-masonry-css'
-import style from './TodolistsList.module.scss'
+} from "./todolists-reducer"
+import {addTaskTC, removeTaskTC, TasksStateType, updateTaskTC} from "./Todolist/Task/tasks-reducer"
+import {TaskStatuses} from "../../api/todolists-api"
+import {Todolist} from "./Todolist/Todolist"
+import {AddItemForm} from "../../components/AddItemForm/AddItemForm"
+import Particles from "react-particles-js"
+import Masonry from "react-masonry-css"
+import style from "./TodolistsList.module.scss"
 
 type TodolistsListPropsType = {
     demo?: boolean
@@ -66,7 +66,6 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         dispatch(updateTaskTC(id, {priority: newPriority}, todolistId))
     }, [dispatch])
 
-
     const addTodolist = useCallback((title: string) => {
         dispatch(addTodolistTC(title))
     }, [dispatch])
@@ -85,36 +84,36 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
 
 
     if (!isLoggedIn) {
-        return <Redirect to={'/login'}/>
+        return <Redirect to={"/login"}/>
     }
 
     const particlesOptions = {
-        'particles': {
-            'number': {'value': 80, 'density': {'enable': true, 'value_area': 800}},
-            'color': {'value': '#0085eb'},
-            'shape': {
-                'type': 'circle',
-                'stroke': {'width': 0, 'color': '#000000'},
-                'polygon': {'nb_sides': 5}
+        "particles": {
+            "number": {"value": 80, "density": {"enable": true, "value_area": 800}},
+            "color": {"value": "#0085eb"},
+            "shape": {
+                "type": "circle",
+                "stroke": {"width": 0, "color": "#000000"},
+                "polygon": {"nb_sides": 5}
             },
             "opacity": {
-                'value': 0.5,
-                'random': false,
-                'anim': {'enable': false, 'speed': 1, 'opacity_min': 0.1, 'sync': false}
+                "value": 0.5,
+                "random": false,
+                "anim": {"enable": false, "speed": 1, "opacity_min": 0.1, "sync": false}
             },
-            'size': {
-                'value': 10,
-                'random': true,
-                'anim': {'enable': false, 'speed': 40, 'size_min': 0.1, 'sync': false}
+            "size": {
+                "value": 10,
+                "random": true,
+                "anim": {"enable": false, "speed": 40, "size_min": 0.1, "sync": false}
             },
-            'line_linked': {'enable': true, 'distance': 150, 'color': '#0085eb', 'opacity': 0.4, 'width': 1},
-            'move': {
-                'enable': true,
-                'speed': 0.4,
-                'random': false,
-                'straight': false,
-                'bounce': false,
-                'attract': {'enable': false, 'rotateX': 600, 'rotateY': 1200}
+            "line_linked": {"enable": true, "distance": 150, "color": "#0085eb", "opacity": 0.4, "width": 1},
+            "move": {
+                "enable": true,
+                "speed": 0.4,
+                "random": false,
+                "straight": false,
+                "bounce": false,
+                "attract": {"enable": false, "rotateX": 600, "rotateY": 1200}
             }
         }
     }
@@ -124,12 +123,12 @@ export const TodolistsList: React.FC<TodolistsListPropsType> = ({demo = false}) 
         1300: 3,
         1000: 2,
         680: 1
-    };
+    }
 
     return (
         <div className={style.todolistsListBlock}>
             <Particles params={particlesOptions} className={style.particles}/>
-            <div data-aos='fade-right' data-aos-duration='600' className={style.todolistsListInputContainer}>
+            <div data-aos="fade-right" data-aos-duration="600" className={style.todolistsListInputContainer}>
                 <AddItemForm
                     addItem={addTodolist}
                     addItemInputStyle={style.todolistsListInput}

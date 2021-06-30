@@ -1,16 +1,16 @@
-import React, {useCallback, useEffect} from 'react'
-import {useDispatch} from 'react-redux'
-import {FilterValuesType, TodolistDomainType} from '../todolists-reducer'
-import {fetchTasksTC} from './Task/tasks-reducer'
-import {TaskStatuses, TaskType} from '../../../api/todolists-api'
-import {Task} from './Task/Task'
-import {AddItemForm} from '../../../components/AddItemForm/AddItemForm'
-import {EditableSpan} from '../../../components/EditableSpan/EditableSpan'
-import {ProgressBar} from './ProgressBar/ProgressBar'
-import moment from 'moment'
-import {Button, ButtonGroup, IconButton} from '@material-ui/core'
-import {Delete} from '@material-ui/icons'
-import style from './Todolist.module.scss'
+import React, {useCallback, useEffect} from "react"
+import {useDispatch} from "react-redux"
+import moment from "moment"
+import {FilterValuesType, TodolistDomainType} from "../todolists-reducer"
+import {fetchTasksTC} from "./Task/tasks-reducer"
+import {TaskStatuses, TaskType} from "../../../api/todolists-api"
+import {Task} from "./Task/Task"
+import {AddItemForm} from "../../../components/AddItemForm/AddItemForm"
+import {EditableSpan} from "../../../components/EditableSpan/EditableSpan"
+import {ProgressBar} from "./ProgressBar/ProgressBar"
+import {Button, ButtonGroup, IconButton} from "@material-ui/core"
+import {Delete} from "@material-ui/icons"
+import style from "./Todolist.module.scss"
 
 type TodolistPropsType = {
     todolist: TodolistDomainType
@@ -51,16 +51,16 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
         props.changeTodolistTitle(props.todolist.id, title)
     }, [props.todolist.id, props.changeTodolistTitle])
 
-    const onAllClickHandler = useCallback(() => props.changeFilter('all', props.todolist.id), [props.todolist.id, props.changeFilter])
-    const onActiveClickHandler = useCallback(() => props.changeFilter('active', props.todolist.id), [props.todolist.id, props.changeFilter])
-    const onCompletedClickHandler = useCallback(() => props.changeFilter('completed', props.todolist.id), [props.todolist.id, props.changeFilter])
+    const onAllClickHandler = useCallback(() => props.changeFilter("all", props.todolist.id), [props.todolist.id, props.changeFilter])
+    const onActiveClickHandler = useCallback(() => props.changeFilter("active", props.todolist.id), [props.todolist.id, props.changeFilter])
+    const onCompletedClickHandler = useCallback(() => props.changeFilter("completed", props.todolist.id), [props.todolist.id, props.changeFilter])
 
     let tasksForTodolist = props.tasks
 
-    if (props.todolist.filter === 'active') {
+    if (props.todolist.filter === "active") {
         tasksForTodolist = props.tasks.filter(t => t.status === TaskStatuses.New)
     }
-    if (props.todolist.filter === 'completed') {
+    if (props.todolist.filter === "completed") {
         tasksForTodolist = props.tasks.filter(t => t.status === TaskStatuses.Completed)
     }
 
@@ -75,17 +75,17 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                         editableSpanTextStyle={style.todolistTitle}
                     />
                     <div className={style.todolistDisplay}>
-                        <span>{props.todolist.addedDate ? moment(props.todolist.addedDate).format('L') : null}</span>
+                        <span>{props.todolist.addedDate ? moment(props.todolist.addedDate).format("L") : null}</span>
                         <IconButton onClick={onRemoveTodolistClickHandler}
-                                    disabled={props.todolist.entityStatus === 'loading'}
+                                    disabled={props.todolist.entityStatus === "loading"}
                                     className={style.todolistDeleteButton}>
-                            <Delete fontSize='inherit'/>
+                            <Delete fontSize="inherit"/>
                         </IconButton>
                     </div>
                 </div>
                 <AddItemForm
                     addItem={onAddTaskClickHandler}
-                    disabled={props.todolist.entityStatus === 'loading'}
+                    disabled={props.todolist.entityStatus === "loading"}
                     addItemInputStyle={style.todolistInput}
                 />
                 <div>
@@ -105,21 +105,21 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                     }
                 </div>
                 <div className={style.todolistFilterContainer}>
-                    <ButtonGroup color={'primary'}
+                    <ButtonGroup color={"primary"}
                                  className={style.buttonGroupContainer}>
-                        <Button variant={props.todolist.filter === 'all' ? 'contained' : 'outlined'}
+                        <Button variant={props.todolist.filter === "all" ? "contained" : "outlined"}
                                 onClick={onAllClickHandler}
-                                color={'default'}
+                                color={"default"}
                                 className={style.buttonFilter}>All
                         </Button>
-                        <Button variant={props.todolist.filter === 'active' ? 'contained' : 'outlined'}
+                        <Button variant={props.todolist.filter === "active" ? "contained" : "outlined"}
                                 onClick={onActiveClickHandler}
-                                color={'primary'}
+                                color={"primary"}
                                 className={style.buttonFilter}>Active
                         </Button>
-                        <Button variant={props.todolist.filter === 'completed' ? 'contained' : 'outlined'}
+                        <Button variant={props.todolist.filter === "completed" ? "contained" : "outlined"}
                                 onClick={onCompletedClickHandler}
-                                color={'secondary'}
+                                color={"secondary"}
                                 className={style.buttonFilter}>Completed
                         </Button>
                     </ButtonGroup>
@@ -129,5 +129,3 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
         </div>
     )
 })
-
-

@@ -1,10 +1,10 @@
-import React, {useCallback} from 'react'
-import {TaskType} from '../../../../../api/todolists-api'
-import {EditableSpan} from '../../../../../components/EditableSpan/EditableSpan'
-import {DeadlineDate} from './DeadlineDate/DeadlineDate'
-import {PrioritySelect} from './PrioritySelect/PrioritySelect'
-import {CreatedDate} from './CreatedDate/CreatedDate'
-import style from './TaskSettings.module.scss'
+import React, {useCallback} from "react"
+import {TaskType} from "../../../../../api/todolists-api"
+import {EditableSpan} from "../../../../../components/EditableSpan/EditableSpan"
+import {DeadlineDate} from "./DeadlineDate/DeadlineDate"
+import {PrioritySelect} from "./PrioritySelect/PrioritySelect"
+import {CreatedDate} from "./CreatedDate/CreatedDate"
+import style from "./TaskSettings.module.scss"
 
 type TaskSettingsPropsType = {
     todolistId: string
@@ -56,11 +56,11 @@ export const TaskSettings = React.memo((props: TaskSettingsPropsType) => {
                 />
             </div>
             <div className={style.settingsItemContainer}>
-                <span className={style.taskItemHelpText} style={{margin: '0 12px 0 0'}}>Created:</span>
+                <span className={style.taskItemHelpText} style={{margin: "0 12px 0 0"}}>Created:</span>
                 <CreatedDate
                     createdDate={props.task.addedDate}
                 />
             </div>
         </div>
-    );
+    )
 })

@@ -1,11 +1,11 @@
-import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {AppRootStateType} from '../../app/store'
-import {RequestStatusType} from '../../app/app-reducer'
-import {logoutTC} from '../../features/Login/auth-reducer'
-import {AppBar, Button, LinearProgress, Toolbar, Typography} from '@material-ui/core'
-import headerLogoImg from '../../assets/images/primaryLogo.png'
-import style from '../Header/Header.module.scss'
+import React from "react"
+import {useDispatch, useSelector} from "react-redux"
+import {AppRootStateType} from "../../app/store"
+import {RequestStatusType} from "../../app/app-reducer"
+import {logoutTC} from "../../features/Login/auth-reducer"
+import {AppBar, Button, LinearProgress, Toolbar, Typography} from "@material-ui/core"
+import headerLogoImg from "../../assets/images/primaryLogo.png"
+import style from "../Header/Header.module.scss"
 
 export function Header() {
 
@@ -21,12 +21,12 @@ export function Header() {
 
     return (
         <div>
-            <AppBar position='static'>
-                <Toolbar data-aos='zoom-in-right' data-aos-duration='800' className={style.header}>
+            <AppBar position="static">
+                <Toolbar data-aos='zoom-in-right' data-aos-duration="800" className={style.header}>
                     <a href='/' className={style.linkHeaderLogo}>
                         <div className={style.headerLogoContainer}>
                             <div className={style.headerLogo}>
-                                <img src={headerLogoImg} alt={'LogoImage'} className={style.headerLogoImg}/>
+                                <img src={headerLogoImg} alt={"LogoImage"} className={style.headerLogoImg}/>
                             </div>
                             <Typography className={style.headerLogoText}>
                                 Task Tracker
@@ -48,7 +48,7 @@ export function Header() {
                             :
                             <div className={style.headerDisplay}>
                                 <div>
-                                    <Button href={'https://social-network.samuraijs.com/signUp'}
+                                    <Button href={"https://social-network.samuraijs.com/signUp"}
                                             className={style.headerButton}>
                                         Sign up
                                     </Button>
@@ -57,7 +57,7 @@ export function Header() {
                     }
                 </Toolbar>
             </AppBar>
-            {status === 'loading' && <LinearProgress/>}
+            {status === "loading" && <LinearProgress/>}
         </div>
     )
 }

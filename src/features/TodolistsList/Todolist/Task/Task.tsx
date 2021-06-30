@@ -1,11 +1,11 @@
-import React, {ChangeEvent, useCallback, useState} from 'react'
-import {TaskStatuses, TaskType} from '../../../../api/todolists-api'
-import {TaskSettings} from './TaskSettings/TaskSettings'
-import {EditableSpan} from '../../../../components/EditableSpan/EditableSpan'
-import {Delete} from '@material-ui/icons'
-import {Checkbox, IconButton} from '@material-ui/core'
-import SettingsIcon from '@material-ui/icons/Settings'
-import style from './Task.module.scss'
+import React, {ChangeEvent, useCallback, useState} from "react"
+import {TaskStatuses, TaskType} from "../../../../api/todolists-api"
+import {TaskSettings} from "./TaskSettings/TaskSettings"
+import {EditableSpan} from "../../../../components/EditableSpan/EditableSpan"
+import {Delete} from "@material-ui/icons"
+import {Checkbox, IconButton} from "@material-ui/core"
+import SettingsIcon from "@material-ui/icons/Settings"
+import style from "./Task.module.scss"
 
 type TaskPropsType = {
     todolistId: string
@@ -39,13 +39,13 @@ export const Task = React.memo((props: TaskPropsType) => {
     }, [props.task.id, props.todolistId])
 
     return (
-        <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? 'is-done' : ''}>
+        <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? "is-done" : ""}>
             <div className={style.taskMainInfo}>
                 <div className={style.taskStatusAndTitle}>
                     <Checkbox
                         checked={props.task.status === TaskStatuses.Completed}
                         onChange={onTaskStausChangeHandler}
-                        color='primary'
+                        color="primary"
                         className={style.taskCheckbox}
                     />
                     <EditableSpan
@@ -56,13 +56,13 @@ export const Task = React.memo((props: TaskPropsType) => {
                     />
                 </div>
                 <div className={style.taskButtonsContainer}>
-                    <IconButton onClick={onClickSettingsButton} color='primary' className={style.taskButton}>
-                        <SettingsIcon fontSize='inherit'/>
+                    <IconButton onClick={onClickSettingsButton} color="primary" className={style.taskButton}>
+                        <SettingsIcon fontSize="inherit"/>
                     </IconButton>
                     <IconButton onClick={onRemoveTaskClickHandler}
-                                disabled={props.task.entityStatus === 'loading'}
+                                disabled={props.task.entityStatus === "loading"}
                                 className={style.taskButton}>
-                        <Delete fontSize='inherit'/>
+                        <Delete fontSize="inherit"/>
                     </IconButton>
                 </div>
             </div>

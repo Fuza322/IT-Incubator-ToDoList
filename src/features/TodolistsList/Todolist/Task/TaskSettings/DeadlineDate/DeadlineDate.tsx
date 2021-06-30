@@ -1,5 +1,5 @@
-import React, {ChangeEvent} from 'react'
-import style from './DeadlineDate.module.scss'
+import React, {ChangeEvent} from "react"
+import style from "./DeadlineDate.module.scss"
 
 type DeadlineDatePropsType = {
     dateValue: string
@@ -17,7 +17,7 @@ export const DeadlineDate = React.memo(function (props: DeadlineDatePropsType) {
             <input
                    value={props.dateValue}
                    onChange={onDeadlineChangeHandler}
-                   type='date'
+                   type="date"
                    className={style.taskDeadlineInput}
             />
 
