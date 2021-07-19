@@ -5,3 +5,9 @@
   min-height: 88.5vh;
   @include flexBox(row, center, stretch, nowrap);
 }
+
+.circularProgressContainer {
+  position: relative;
+  width: 100%;
+  height: 5px;
+}

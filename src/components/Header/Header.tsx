@@ -57,7 +57,7 @@ export function Header() {
                     }
                 </Toolbar>
             </AppBar>
-            {status === "loading" && <LinearProgress/>}
+            {status === "loading" ? <LinearProgress/> : <div style={{height: '4px'}}/>}
         </div>
     )
 }

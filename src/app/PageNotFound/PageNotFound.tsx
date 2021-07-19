@@ -1,5 +1,5 @@
-import React from 'react'
-import style from './PageNotFound.module.scss'
+import React from "react"
+import style from "./PageNotFound.module.scss"
 
 export const PageNotFound = React.memo(() => {
     return (

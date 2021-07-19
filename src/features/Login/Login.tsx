@@ -4,8 +4,8 @@ import {AppRootStateType} from "../../app/store"
 import {useFormik} from "formik"
 import {loginTC} from "./auth-reducer"
 import {useDispatch, useSelector} from "react-redux"
-import projectImage from "./../../assets/images/todolist.png"
 import {Checkbox, FormControl, FormControlLabel, TextField, Button, Grid} from "@material-ui/core"
+import projectImage from "./../../assets/images/todolist.png"
 import style from "./Login.module.scss"
 
 type FormikErrorType = {
@@ -57,7 +57,8 @@ export const Login = React.memo(function () {
             </div>
             <div className={style.loginContent}>
                 <div data-aos="zoom-in" data-aos-duration="600" className={style.projectContainer}>
-                    <div className={style.projectImageContainer} style={{backgroundImage: `url(${projectImage})`}}></div>
+                    <div className={style.projectImageContainer}
+                         style={{backgroundImage: `url(${projectImage})`}}></div>
                     <div className={style.projectBody}>
                         <div className={style.projectInfo}>
                             <h3 className={style.projectHelpText}>Task Tracker help you to:</h3>
