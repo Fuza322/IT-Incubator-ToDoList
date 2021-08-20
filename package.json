@@ -1,7 +1,8 @@
 {
-  "name": "todo-16",
+  "name": "todolist",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Fuza322.github.io/TodoList",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
@@ -19,6 +20,7 @@
     "axios": "^0.21.1",
     "formic": "^0.0.10",
     "formik": "^2.2.6",
+    "gh-pages": "^3.2.3",
     "moment": "^2.29.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
@@ -38,7 +40,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
