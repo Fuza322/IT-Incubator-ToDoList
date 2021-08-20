@@ -18,7 +18,6 @@ type PropsType = {
 export function App({demo = false}: PropsType) {
 
     const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
-
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -26,7 +25,7 @@ export function App({demo = false}: PropsType) {
     }, [dispatch])
 
     if (!isInitialized) {
-        return <div style={{position: "fixed", top: "30%", textAlign: "center", width: "100%"}}>
+        return <div style={{position: "fixed", top: "50%", textAlign: "center", width: "100%"}}>
             <CircularProgress/>
         </div>
     }

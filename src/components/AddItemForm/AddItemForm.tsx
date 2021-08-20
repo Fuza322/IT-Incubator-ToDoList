@@ -11,8 +11,8 @@ type AddItemFormPropsType = {
 
 export const AddItemForm = React.memo(function ({addItem, disabled = false, addItemInputStyle}: AddItemFormPropsType) {
 
-    let [title, setTitle] = useState<string>("")
-    let [error, setError] = useState<string | null>(null)
+    const [title, setTitle] = useState<string>("")
+    const [error, setError] = useState<string | null>(null)
 
     const addItemHandler = () => {
         if (title.trim() !== "") {

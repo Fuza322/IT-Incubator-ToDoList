@@ -76,9 +76,10 @@ export const Todolist = React.memo(function ({demo = false, ...props}: TodolistP
                     />
                     <div className={style.todolistDisplay}>
                         <span>{props.todolist.addedDate ? moment(props.todolist.addedDate).format("L") : null}</span>
-                        <IconButton onClick={onRemoveTodolistClickHandler}
-                                    disabled={props.todolist.entityStatus === "loading"}
-                                    className={style.todolistDeleteButton}>
+                        <IconButton
+                            onClick={onRemoveTodolistClickHandler}
+                            disabled={props.todolist.entityStatus === "loading"}
+                            className={style.todolistDeleteButton}>
                             <Delete fontSize="inherit"/>
                         </IconButton>
                     </div>

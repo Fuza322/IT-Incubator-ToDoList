@@ -2,7 +2,7 @@
 @import "src/common/styles/variebles";
 
 .mainBlock {
-  min-height: 88.5vh;
+  min-height: 86vh;
   @include flexBox(row, center, stretch, nowrap);
 }
 

@@ -27,7 +27,7 @@ export const Login = React.memo(function () {
             rememberMe: false
         },
         validate: (values) => {
-            const errors: FormikErrorType = {};
+            const errors: FormikErrorType = {}
             if (!values.email) {
                 errors.email = "Required."
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
@@ -79,8 +79,6 @@ export const Login = React.memo(function () {
                             <div className={style.authTextContainer}>
                                 <h3>Authorization</h3>
                             </div>
-                            {/*<p>Email: free@samuraijs.com</p>*/}
-                            {/*<p>Password: free</p>*/}
                             <TextField
                                 variant="outlined"
                                 label="Email"
