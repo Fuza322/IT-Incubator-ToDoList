@@ -15,10 +15,10 @@ export const DeadlineDate = React.memo(function (props: DeadlineDatePropsType) {
     return (
         <>
             <input
-                   value={props.dateValue}
-                   onChange={onDeadlineChangeHandler}
-                   type="date"
-                   className={style.taskDeadlineInput}
+                type="date"
+                value={props.dateValue}
+                onChange={onDeadlineChangeHandler}
+                className={style.taskDeadlineInput}
             />
 
         </>
