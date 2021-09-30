@@ -2,7 +2,7 @@
   "name": "todolist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Fuza322.github.io/it-incubator-todolist-redux-thunk",
+  "homepage": "https://Fuza322.github.io/it-incubator-todolist",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
