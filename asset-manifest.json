@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/it-incubator-todolist-redux-thunk/static/css/main.700195a4.chunk.css",
-    "main.js": "/it-incubator-todolist-redux-thunk/static/js/main.f4ce967c.chunk.js",
-    "main.js.map": "/it-incubator-todolist-redux-thunk/static/js/main.f4ce967c.chunk.js.map",
-    "runtime-main.js": "/it-incubator-todolist-redux-thunk/static/js/runtime-main.4d84d3c8.js",
-    "runtime-main.js.map": "/it-incubator-todolist-redux-thunk/static/js/runtime-main.4d84d3c8.js.map",
-    "static/js/2.d637ce1f.chunk.js": "/it-incubator-todolist-redux-thunk/static/js/2.d637ce1f.chunk.js",
-    "static/js/2.d637ce1f.chunk.js.map": "/it-incubator-todolist-redux-thunk/static/js/2.d637ce1f.chunk.js.map",
-    "static/js/3.b35a8398.chunk.js": "/it-incubator-todolist-redux-thunk/static/js/3.b35a8398.chunk.js",
-    "static/js/3.b35a8398.chunk.js.map": "/it-incubator-todolist-redux-thunk/static/js/3.b35a8398.chunk.js.map",
-    "index.html": "/it-incubator-todolist-redux-thunk/index.html",
-    "static/css/main.700195a4.chunk.css.map": "/it-incubator-todolist-redux-thunk/static/css/main.700195a4.chunk.css.map",
-    "static/js/2.d637ce1f.chunk.js.LICENSE.txt": "/it-incubator-todolist-redux-thunk/static/js/2.d637ce1f.chunk.js.LICENSE.txt",
-    "static/media/primaryLogo.9d6a70d6.png": "/it-incubator-todolist-redux-thunk/static/media/primaryLogo.9d6a70d6.png",
-    "static/media/todolist.7517dddc.png": "/it-incubator-todolist-redux-thunk/static/media/todolist.7517dddc.png"
+    "main.css": "/it-incubator-todolist/static/css/main.9740343e.chunk.css",
+    "main.js": "/it-incubator-todolist/static/js/main.d18d1f41.chunk.js",
+    "main.js.map": "/it-incubator-todolist/static/js/main.d18d1f41.chunk.js.map",
+    "runtime-main.js": "/it-incubator-todolist/static/js/runtime-main.0755faaa.js",
+    "runtime-main.js.map": "/it-incubator-todolist/static/js/runtime-main.0755faaa.js.map",
+    "static/js/2.e62026e8.chunk.js": "/it-incubator-todolist/static/js/2.e62026e8.chunk.js",
+    "static/js/2.e62026e8.chunk.js.map": "/it-incubator-todolist/static/js/2.e62026e8.chunk.js.map",
+    "static/js/3.b35a8398.chunk.js": "/it-incubator-todolist/static/js/3.b35a8398.chunk.js",
+    "static/js/3.b35a8398.chunk.js.map": "/it-incubator-todolist/static/js/3.b35a8398.chunk.js.map",
+    "index.html": "/it-incubator-todolist/index.html",
+    "static/css/main.9740343e.chunk.css.map": "/it-incubator-todolist/static/css/main.9740343e.chunk.css.map",
+    "static/js/2.e62026e8.chunk.js.LICENSE.txt": "/it-incubator-todolist/static/js/2.e62026e8.chunk.js.LICENSE.txt",
+    "static/media/primaryLogo.9d6a70d6.png": "/it-incubator-todolist/static/media/primaryLogo.9d6a70d6.png",
+    "static/media/todolist.7517dddc.png": "/it-incubator-todolist/static/media/todolist.7517dddc.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.4d84d3c8.js",
-    "static/js/2.d637ce1f.chunk.js",
-    "static/css/main.700195a4.chunk.css",
-    "static/js/main.f4ce967c.chunk.js"
+    "static/js/runtime-main.0755faaa.js",
+    "static/js/2.e62026e8.chunk.js",
+    "static/css/main.9740343e.chunk.css",
+    "static/js/main.d18d1f41.chunk.js"
   ]
 }
